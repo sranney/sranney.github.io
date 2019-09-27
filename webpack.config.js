@@ -26,6 +26,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/bloglist': 'https://mylearningposts-api.herokuapp.com'
-        }
+        },
+        historyApiFallback: true
     }
 }
