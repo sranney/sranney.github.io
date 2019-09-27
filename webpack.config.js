@@ -25,7 +25,7 @@ module.exports = {
     ],
     devServer: {
         proxy: {
-            '/blogList': 'http://localhost:5000'
+            '/bloglist': 'https://mylearningposts-api.herokuapp.com'
         }
     }
 }
