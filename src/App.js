@@ -1,7 +1,6 @@
 //node modules
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 //components
 import Header from "./components/general/Header";
@@ -25,24 +24,14 @@ export default function App ( ) {
     return (
         <React.Fragment>
             <Router>
-                <Route render={({location})=>
-                    <Context.Provider value={[blogs, isLoading, error]}>
-                        <Header/>
-                        <TransitionGroup>
-                            <CSSTransition
-                                key={location.key}
-                                timeout={350}
-                                classNames="fade"
-                            >
-                                <Switch location={location}>
-                                    <Route exact path='/' component={Home}/>
-                                    <Route path='/blog/:id' component={Blog}/>
-                                    <Route path='/bloglist/:searchterm?' component={Search}/>
-                                </Switch>
-                            </CSSTransition>
-                        </TransitionGroup>
-                    </Context.Provider>
-                }/>
+                <Context.Provider value={[blogs, isLoading, error]}>
+                    <Header/>
+                    <Switch location={location}>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/blog/:id' component={Blog}/>
+                        <Route path='/bloglist/:searchterm?' component={Search}/>
+                    </Switch>
+                </Context.Provider>
             </Router>
         </React.Fragment>
     )
