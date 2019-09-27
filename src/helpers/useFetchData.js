@@ -28,15 +28,13 @@ export default function useFetchData () {
     )
 
     useEffect(() => {
-        console.log("inside useEffect");
         dispatch({type: IS_LOADING});
 
         fetch(`/blogList`)
-            .then(res=>res.json())
+            .then(res => res.json())
             .then(res => dispatch({type: SET_SUCCESS, data: res}))
             .catch(err => dispatch({type: SET_ERROR, data: err}));
     },[]);
 
-    console.log([goodResponse, isLoading, error]);
     return [goodResponse, isLoading, error];
 };
