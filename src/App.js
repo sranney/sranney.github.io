@@ -23,7 +23,7 @@ export default function App ( ) {
 
     return (
         <React.Fragment>
-            <Router>
+            <Router basename={"/blog"}>
                 <Context.Provider value={[blogs, isLoading, error]}>
                     <Header/>
                     <Switch location={location}>

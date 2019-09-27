@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -28,6 +29,8 @@ module.exports = {
         proxy: {
             '/bloglist': 'https://mylearningposts-api.herokuapp.com'
         },
-        historyApiFallback: true
+        historyApiFallback: {
+            index: '/'
+        }
     }
 }
