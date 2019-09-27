@@ -30,7 +30,7 @@ module.exports = {
             '/bloglist': 'https://mylearningposts-api.herokuapp.com'
         },
         historyApiFallback: {
-            index: '/'
+            index: '/index.html'
         }
     }
 }
