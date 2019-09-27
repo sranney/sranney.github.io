@@ -30,7 +30,7 @@ export default function useFetchData () {
     useEffect(() => {
         dispatch({type: IS_LOADING});
 
-        fetch(`/blogList`)
+        fetch("https://mylearningposts-api.herokuapp.com/blogList")
             .then(res => res.json())
             .then(res => dispatch({type: SET_SUCCESS, data: res}))
             .catch(err => dispatch({type: SET_ERROR, data: err}));
