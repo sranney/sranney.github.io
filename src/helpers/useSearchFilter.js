@@ -4,6 +4,7 @@ export default function useSearchFilter(blogs=[], searchValue="") {
     const [filteredBlogs, setFilteredBlogs] = useState([]);
 
     useEffect(() => {
+
         const searchLength = searchValue.length;
         if (blogs) {
             const searchArr = blogs.reduce((collection, blog) => {
@@ -15,7 +16,7 @@ export default function useSearchFilter(blogs=[], searchValue="") {
                 }
                 return [...collection];
             }, []);
-            
+
             setFilteredBlogs(
                 (searchLength > 0 && searchArr.length > 0 && searchArr)
                 || (searchLength === 0 && blogs)

@@ -26,7 +26,7 @@ export default function Search ({match: {params: {searchterm}}}) {
     return (
         <div>
             <SearchBar onChange={onSearchChange} reset={resetSearch} value={searchValue}/>
-            <Entries blogList={(searchValue.length === 0 && blogs) || filteredBlogs} linkDisplay={false} id={searchValue}/>
+            <Entries blogList={((searchValue.length === 0 && searchterm && searchterm.length === 0) && blogs) || filteredBlogs} linkDisplay={false} id={searchValue}/>
         </div>
     );
 };
