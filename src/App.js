@@ -19,12 +19,12 @@ import Context from "./helpers/context";
 
 export default function App ( ) {
 
-    const [blogs, isLoading, error] = useFetchData();
+    const fetchData = useFetchData();
 
     return (
         <React.Fragment>
             <Router>
-                <Context.Provider value={[blogs, isLoading, error]}>
+                <Context.Provider value={fetchData}>
                     <Header/>
                     <Switch location={location}>
                         <Route exact path='/' component={Home}/>
