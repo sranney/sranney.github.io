@@ -28,5 +28,11 @@ module.exports = {
         proxy: {
             '/bloglist': 'https://mylearningposts-api.herokuapp.com'
         }
+    },
+    resolve: {
+        alias: {
+            'react-dom$': 'react-dom/profiling',
+            'scheduler/tracing': 'scheduler/tracing-profiling',
+        }
     }
 }

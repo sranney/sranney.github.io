@@ -6,7 +6,7 @@ import Introduction from "./home/Introduction";
 
 export default function Home() {
     return (
-        <div>
+        <div className='post-body'>
             <Introduction/>
             <Link to='/bloglist'><h1>Click here to view posts</h1></Link>
         </div>

@@ -4,11 +4,11 @@ import NoMatchOrError from "./general/NoMatchOrError";
 import SearchBar from "./search/SearchBar";
 import Entries from "./general/Entries";
 
-import Context from "../helpers/context";
-import useSearchFilter from "../helpers/useSearchFilter";
+import DataContext from "../helpers/context/contexts";
+import useSearchFilter from "../helpers/hooks/useSearchFilter";
 
 export default function Search ({match: {params: {searchterm}}}) {
-    const [blogs, isLoading, error] = useContext(Context);
+    const [blogs, isLoading, error] = useContext(DataContext);
     const [searchValue, setSearchValue] = useState("");
     const [filteredBlogs] = useSearchFilter(blogs,searchValue||searchterm);
 

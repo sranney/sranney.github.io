@@ -10,10 +10,10 @@ import SectionTitle from "./blog/SectionTitle";
 
 import NoMatchOrError from "./general/NoMatchOrError";
 
-import Context from "../helpers/context";
+import DataContext from "../helpers/context/contexts";
 
 export default function Blog ({match: {params: {id}}}) {
-    const [blogs, isLoading, error] = useContext(Context);
+    const [blogs, isLoading, error] = useContext(DataContext);
     const [blog, setBlog] = useState([]);
 
     useEffect(()=>setBlog((blogs && blogs.filter(({key}) => key == id)[0].blog)||[]),[blogs,id]);
