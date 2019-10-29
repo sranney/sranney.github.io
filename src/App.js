@@ -7,9 +7,7 @@ import Header from "./components/general/Header";
 
 //styled components
 import GlobalStyles from "./helpers/styled-components/global";
-
-//additional root styles
-
+import { ThemeProvider } from "styled-components";
 
 //pages
 import Blog from "./components/Blog";
@@ -19,7 +17,7 @@ import Search from "./components/Search";
 //other helpers
 import useFetchData from "./helpers/hooks/useFetchData";
 import useThemeSetter from "./helpers/hooks/useThemeSetter";
-import {ThemeContext, DataContext} from "./helpers/context/contexts";
+import {DataContext} from "./helpers/context/contexts";
 
 
 export default function App () {
@@ -31,14 +29,16 @@ export default function App () {
             <GlobalStyles/>
             <Router>
                 <DataContext.Provider value={fetchData}>                       
-                    <ThemeContext.Provider value={themeState}>
-                        <Header/>
-                        <Switch location={location}>
-                            <Route exact path='/' component={Home}/>
-                            <Route path='/blog/:id' component={Blog}/>
-                            <Route path='/bloglist/:searchterm?' component={Search}/>
-                        </Switch>
-                    </ThemeContext.Provider>
+                    <ThemeProvider theme={themeState}>
+                        <div>    
+                            <Header/>
+                            <Switch location={location}>
+                                <Route exact path='/' component={Home}/>
+                                <Route path='/blog/:id' component={Blog}/>
+                                <Route path='/bloglist/:searchterm?' component={Search}/>
+                            </Switch>
+                        </div>
+                    </ThemeProvider>
                 </DataContext.Provider>
             </Router>
         </React.Fragment>

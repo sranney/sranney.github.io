@@ -1,18 +1,19 @@
-import React, {useContext} from "react";
-import {ThemeContext} from "../../helpers/context/contexts";
+import React from "react";
 import Toggle from "../header/Toggle";
 
 import {Link} from "react-router-dom";
 
+import {HeaderContainer, FlexWrapper} from "../../helpers/styled-components/containers";
+import {PrimaryButton} from "../../helpers/styled-components/buttons";
+
 export default function Header() {
-    const themeState = useContext(ThemeContext);
     return (
-        <div className='light d-flex flex-jc-space-between flex-ai-center'>
+        <HeaderContainer>
             <Link to='/'><h1 className='title'>My Learning Posts</h1></Link>
-            <div className='btn-nav'>
-                <Toggle {...themeState}/>
-                <Link to='/bloglist'><button className='btn-primary'>Posts</button></Link>
-            </div>
-        </div>
+            <FlexWrapper className='btn-nav'>
+                <Toggle/>
+                <Link to='/bloglist'><PrimaryButton>Posts</PrimaryButton></Link>
+            </FlexWrapper>
+        </HeaderContainer>
     )
 };

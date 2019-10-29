@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import ReactHtmlParser from "react-html-parser";
 
-import {ThemeContext} from "../../helpers/context/contexts";
+import {ThemeContext} from "styled-components";
 
 import {BodyPar} from "../../helpers/styled-components/typography";
 
