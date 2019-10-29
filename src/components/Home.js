@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 import Introduction from "./home/Introduction";
 
-
 export default function Home() {
     return (
         <div className='post-body'>

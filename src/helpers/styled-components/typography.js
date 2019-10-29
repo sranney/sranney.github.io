@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
-const P = styled.p`
-
+export const BodyPar = styled.p`
+    font-size: $font-size-large;
+    color: ${props => props.theme === 'light' ? "red" : "blue"};
 `;

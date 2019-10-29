@@ -4,7 +4,7 @@ import NoMatchOrError from "./general/NoMatchOrError";
 import SearchBar from "./search/SearchBar";
 import Entries from "./general/Entries";
 
-import DataContext from "../helpers/context/contexts";
+import {DataContext} from "../helpers/context/contexts";
 import useSearchFilter from "../helpers/hooks/useSearchFilter";
 
 export default function Search ({match: {params: {searchterm}}}) {

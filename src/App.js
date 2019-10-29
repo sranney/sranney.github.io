@@ -8,6 +8,9 @@ import Header from "./components/general/Header";
 //styled components
 import GlobalStyles from "./helpers/styled-components/global";
 
+//additional root styles
+
+
 //pages
 import Blog from "./components/Blog";
 import Home from "./components/Home";

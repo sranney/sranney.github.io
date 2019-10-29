@@ -10,7 +10,7 @@ import SectionTitle from "./blog/SectionTitle";
 
 import NoMatchOrError from "./general/NoMatchOrError";
 
-import DataContext from "../helpers/context/contexts";
+import {DataContext} from "../helpers/context/contexts";
 
 export default function Blog ({match: {params: {id}}}) {
     const [blogs, isLoading, error] = useContext(DataContext);

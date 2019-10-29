@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import ReactHtmlParser from "react-html-parser";
 
+import {ThemeContext} from "../../helpers/context/contexts";
+
+import {BodyPar} from "../../helpers/styled-components/typography";
+
 export default function Body ({paragraphs,ishtml}) {
+    const {theme} = useContext(ThemeContext);
     return (
         <div className="section-body">
             {
@@ -9,7 +14,7 @@ export default function Body ({paragraphs,ishtml}) {
                 ReactHtmlParser(paragraphs)
                 :
                 paragraphs.map(({content,key})=>{
-                    return <p className="body" key={key}>{content}</p>
+                    return <BodyPar theme={theme} key={key}>{content}</BodyPar>
                 })
             }
         </div>
