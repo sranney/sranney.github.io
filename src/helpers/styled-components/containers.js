@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const themeContainerBackground = ({ theme }) => theme === 'light' ? 'var(--color-neutral-500-alpha-6)' : 'var(--color-neutral-300-alpha-6)';
+const themeContainerBackground = ({ theme: {theme} }) => (theme === 'light' ? 'var(--color-neutral-400-alpha-6)' : 'var(--color-neutral-600-alpha-6)');
 
 export const FlexWrapper = styled.div`
     display: flex;
@@ -9,7 +9,6 @@ export const FlexWrapper = styled.div`
 `;
 
 export const HeaderContainer = styled(FlexWrapper)`
-    background-color: ${themeContainerBackground};
     padding: 0 16px;
     z-index: 100000000;
 `;

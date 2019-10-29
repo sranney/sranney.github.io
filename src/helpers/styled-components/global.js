@@ -1,4 +1,8 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle, keyframes} from 'styled-components';
+
+const backgroundUrl = 'https://mylearningposts-api.herokuapp.com/images/';
+const lightBackground = 'eberhard-grossgasteiger-5P91SF0zNsI-unsplash';
+const darkBackground = 'casey-horner-XE2RmuV6ed0-unsplash';
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -8,21 +12,18 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         min-height: 100vh;
         font-family: 'Raleway', serif;
-        
-        &.dark {
-            background: url(https://mylearningposts-api.herokuapp.com/images/casey-horner-XE2RmuV6ed0-unsplash.jpg);
-        }
-        
-        &.light {
-            background: url(https://mylearningposts-api.herokuapp.com/images/eberhard-grossgasteiger-5P91SF0zNsI-unsplash.jpg);
-        }
+        background-image: url(${backgroundUrl}${lightBackground}.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
 
-        &.dark,
+        &.dark {
+            background-image: url(${backgroundUrl}${darkBackground}.jpg);
+        }
+        
         &.light {
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
+            background-image: url(${backgroundUrl}${lightBackground}.jpg);
         }
     }
     :root {

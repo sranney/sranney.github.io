@@ -47,8 +47,9 @@ export const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button) `
-    background-color: var(--color-primary-800);
-    color: var(--color-neutral-0);
+    background-color: ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-primary-800)' : 'var(--color-neutral-0)'};
+    color: ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)'};
+    border: 3px solid ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)'};
     &:hover {
         background-color: var(--color-primary-500);
     }
