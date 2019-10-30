@@ -26,6 +26,10 @@ const GlobalStyles = createGlobalStyle`
             background-image: url(${backgroundUrl}${lightBackground}.jpg);
         }
     }
+    twitter-widget {
+        margin-left: auto;
+        margin-right: auto;
+    }
     :root {
         --color-neutral-0: #fff;
         --color-neutral-100: #fafafa;
