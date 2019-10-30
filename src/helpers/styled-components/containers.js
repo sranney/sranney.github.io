@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {backgroundColor} from "./mixins/themeColor";
+import {boxShadow} from "./mixins/content";
 
-const themeContainerBackground = ({ theme: {theme} }) => (theme === 'light' ? 'var(--color-neutral-400-alpha-6)' : 'var(--color-neutral-600-alpha-6)');
 
 export const FlexWrapper = styled.div`
     display: flex;
@@ -17,8 +18,8 @@ export const PostBody = styled.div`
     max-width: 800px;
     margin: 32px auto;
     padding: 16px 32px;
-    background-color: ${themeContainerBackground};
-    box-shadow: ${({ theme }) => theme === 'light' && '0 0 10px'};
+    background-color: ${backgroundColor};
+    box-shadow: ${boxShadow};
     @media(max-width: 800px) {
         margin-left: 0;
         margin-right: 0;

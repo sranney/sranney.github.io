@@ -1,23 +1,17 @@
 import styled from "styled-components";
 
-const buttonFontSize = ({size}) => {
-    switch(size) {
-        case 'small':
-            return "0.875rem";
-        case 'large':
-            return "1.25rem";
-        default:
-            return "1rem";
-    }
-};
+import {fontColor} from "./mixins/themeColor";
+import {fontSize} from "./mixins/typography";
+import {blockWidth,boxShadow} from "./mixins/content";
 
-const buttonWidth = ({block}) => block && '100%';
+const borderColor = ({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)';
+const backgroundColor = ({ theme: { theme } }) => theme === 'dark' ? 'var(--color-primary-800)' : 'var(--color-neutral-0)';
 
 export const Button = styled.button`
     padding: 1em;
     border-radius: 0;
-    font-size: ${buttonFontSize};
-    width: ${buttonWidth};
+    font-size: ${fontSize};
+    width: ${blockWidth};
     border: 2px solid transparent;
     margin: 8px;
     font-weight: bold;
@@ -31,7 +25,7 @@ export const Button = styled.button`
     &:hover,
     &:hover:focus,
     &:active {
-        box-shadow: 0 0 3px 1px var(--color-neutral-1000-alpha-5);
+        box-shadow: ${boxShadow};
     }
 
     &:hover {
@@ -47,10 +41,10 @@ export const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button) `
-    background-color: ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-primary-800)' : 'var(--color-neutral-0)'};
-    color: ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)'};
-    border: 3px solid ${({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)'};
+    background-color: ${backgroundColor};
+    color: ${fontColor};
+    border: 3px solid ${borderColor};
     &:hover {
-        background-color: var(--color-primary-500);
+        background-color: ${backgroundColor};
     }
 `;

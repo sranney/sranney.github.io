@@ -39,15 +39,15 @@ const GlobalStyles = createGlobalStyle`
         --color-neutral-900: #424242;
         --color-neutral-950: #212121;
         --color-neutral-1000: #000;
-        --color-neutral-0-alpha-1: rgba(0,0,0,0.1);
-        --color-neutral-0-alpha-2: rgba(0,0,0,0.2);
-        --color-neutral-0-alpha-3: rgba(0,0,0,0.3);
-        --color-neutral-0-alpha-4: rgba(0,0,0,0.4);
-        --color-neutral-0-alpha-5: rgba(0,0,0,0.5);
-        --color-neutral-0-alpha-6: rgba(0,0,0,0.6);
-        --color-neutral-0-alpha-7: rgba(0,0,0,0.7);
-        --color-neutral-0-alpha-8: rgba(0,0,0,0.8);
-        --color-neutral-0-alpha-9: rgba(0,0,0,0.9);
+        --color-neutral-0-alpha-1: rgba(255,255,255,0.1);
+        --color-neutral-0-alpha-2: rgba(255,255,255,0.2);
+        --color-neutral-0-alpha-3: rgba(255,255,255,0.3);
+        --color-neutral-0-alpha-4: rgba(255,255,255,0.4);
+        --color-neutral-0-alpha-5: rgba(255,255,255,0.5);
+        --color-neutral-0-alpha-6: rgba(255,255,255,0.6);
+        --color-neutral-0-alpha-7: rgba(255,255,255,0.7);
+        --color-neutral-0-alpha-8: rgba(255,255,255,0.8);
+        --color-neutral-0-alpha-9: rgba(255,255,255,0.9);
         --color-neutral-100-alpha-1: rgba(250,250,250,0.1);
         --color-neutral-100-alpha-2: rgba(250,250,250,0.2);
         --color-neutral-100-alpha-3: rgba(250,250,250,0.3);
@@ -349,6 +349,14 @@ const GlobalStyles = createGlobalStyle`
         --color-accent-900-alpha-7: rgba(1, 87, 155,0.7);
         --color-accent-900-alpha-8: rgba(1, 87, 155,0.8);
         --color-accent-900-alpha-9: rgba(1, 87, 155,0.9);
+
+        --font-size-jumbo: 3rem;
+        --font-size-xxlarge: 2rem;
+        --font-size-xlarge: 1.5rem;
+        --font-size-large: 1.25rem;
+        --font-size-base: 1rem;
+        --font-size-small: .875rem;
+        --font-size-xsmall: .75rem;
     }
 `;
 
