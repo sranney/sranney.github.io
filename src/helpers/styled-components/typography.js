@@ -45,7 +45,10 @@ export const PostTitle = styled(Type)`
 
 export const PostSectionHeader = styled(Type)`
     font-size: var(--font-size-xlarge);
-    text-decoration: underline;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 2px solid ${fontColor};
+    border-bottom: 2px solid ${fontColor};
 `;
 
 //to be used as post body paragraph component
@@ -65,4 +68,9 @@ export const HeaderLink = styled(Link)`
     @media (max-width: 800px) {
         font-size: 1.5rem;
     }
+`;
+
+export const StyledAnchor = styled.a`
+    color: ${fontColor};
+    text-decoration: none;
 `;
