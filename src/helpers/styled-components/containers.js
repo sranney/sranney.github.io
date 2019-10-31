@@ -12,8 +12,18 @@ export const FlexWrapper = styled.div`
 export const HeaderContainer = styled(FlexWrapper)`
     padding: 0 16px;
     z-index: 100000000;
+    
     @media (max-width: 480px) {
+        background-color: ${backgroundColor};
         display: block;
+        width:100%;
+        padding: 0;
+    }
+`;
+
+export const BtnNav = styled(FlexWrapper)`
+    @media (max-width: 480px) {
+        justify-content: center;
     }
 `;
 
@@ -26,5 +36,9 @@ export const PostBody = styled.div`
     @media(max-width: 800px) {
         margin-left: 0;
         margin-right: 0;
+        margin-bottom: 0;
+    }
+    @media(max-width: 480px) {
+        margin-top: 0;
     }
 `;

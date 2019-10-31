@@ -48,3 +48,18 @@ export const PrimaryButton = styled(Button) `
         background-color: ${backgroundColor};
     }
 `;
+
+export const ThemeButton = styled(PrimaryButton)`
+    position: relative;
+
+    align-self: stretch;
+
+    &:before {
+        content: ${({ theme: { theme } }) => theme === 'light' ? `'☀️'` : `'🌙'`};
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+`;
+

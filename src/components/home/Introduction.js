@@ -222,6 +222,11 @@ const IntroArr = [
         underline: false
     },
     {
+        key: 10010,
+        type: 'twitter',
+        content: 'https://twitter.com/_ericelliott/status/1186991102890565632?ref_src=twsrc%5Etfw'
+    },
+    {
         key: 36,
         type: 'par',
         content: 'Again, what matters more here than what you choose to learn is how you choose to learn it. As Tyler McGinnis states in his wonderful 📢 React Hooks course 📢, "When learning something new, ask two questions. Why does this thing exist? What problems does this thing solve?" 🧐',
@@ -475,6 +480,18 @@ const IntroArr = [
         key: 79,
         type: 'sectionheader',
         content: 'In conclusion, don\'t sweat this. There are tons of resources to help you become an engineer and learn new technology. It is just about finding what won\'t be a waste of your time, asking yourself and others engineering questions, focusing on a select few technologies that will keep your focus, and finding your community. Good luck!'
+    },
+    {
+        key: 80,
+        type: 'par',
+        content: 'The whole purpose of this site is to point people in the right direction of where to learn material. Although I will be writing blogs myself, I will be only writing on material that I thought was interesting that I have read. My code examples will be my own, but they will be generated as a response to certain techniques or patterns that I have observed. As you see below, I have posted some stuff related to what I have talked about in the blog post. This is what I will always do. I will point you to the people that I have learned from.',
+        underline: false
+    },
+    {
+        key: 81,
+        type: 'par',
+        content: '"If I have seen further it is by standing on the shoulders of Giants." - Isaac Newton',
+        underline: false
     }
 ]
 
