@@ -1,5 +1,6 @@
 import React from "react";
 import Toggle from "../header/Toggle";
+import {useMediaPredicate} from "react-media-hook";
 
 import {Link} from "react-router-dom";
 
@@ -8,6 +9,7 @@ import {PrimaryButton} from "../../helpers/styled-components/buttons";
 import { HeaderTitle, HeaderLink, HeaderPar} from "../../helpers/styled-components/typography";
 
 export default function Header() {
+    const noGreaterThan500 = useMediaPredicate("(max-width: 500px)");
     return (
         <HeaderContainer>
             <HeaderLink to='/'>
@@ -16,7 +18,7 @@ export default function Header() {
             </HeaderLink>
             <FlexWrapper className='btn-nav'>
                 <Toggle/>
-                <Link to='/bloglist'><PrimaryButton>Posts</PrimaryButton></Link>
+                <Link to='/bloglist'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>Posts</PrimaryButton></Link>
             </FlexWrapper>
         </HeaderContainer>
     )

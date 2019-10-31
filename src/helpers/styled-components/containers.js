@@ -12,6 +12,9 @@ export const FlexWrapper = styled.div`
 export const HeaderContainer = styled(FlexWrapper)`
     padding: 0 16px;
     z-index: 100000000;
+    @media (max-width: 480px) {
+        display: block;
+    }
 `;
 
 export const PostBody = styled.div`

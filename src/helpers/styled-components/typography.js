@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 //mixins used in typography - sets the color of font and background colors depending on the theme
 import {fontColor,backgroundColor} from "./mixins/themeColor";
+import {fontSize} from "./mixins/typography";
 
 //typography animations
 const typingEffect = keyframes`
@@ -73,4 +74,6 @@ export const HeaderLink = styled(Link)`
 export const StyledAnchor = styled.a`
     color: ${fontColor};
     text-decoration: none;
+    font-size: var(--font-size-xsmall);
+    display: block;
 `;
