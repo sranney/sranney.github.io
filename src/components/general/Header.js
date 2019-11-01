@@ -17,8 +17,8 @@ export default function Header() {
     return (
         <HeaderContainer>
             <HeaderLink to='/'>
-                <HeaderTitle>F•T•L•O•L</HeaderTitle>
-                <HeaderPar>For The Love of Learning</HeaderPar>   
+                <HeaderTitle>F•T•L•O•E</HeaderTitle>
+                <HeaderPar>For The Love of Engineering</HeaderPar>   
             </HeaderLink>
             <BtnNav>
                 {

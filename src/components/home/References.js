@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { StyledAnchor, PostSectionHeader } from "../../helpers/styled-components/typography";
 
 
@@ -37,6 +37,11 @@ const references = [
         key: 6,
         href:"https://medium.com/@_ericelliott",
         text: "Eric Elliott on Medium"
+    },
+    {
+        key: 1720,
+        href: "https://medium.com/javascript-scene/composing-software-an-introduction-27b72500d6ea",
+        text: "Eric Elliott's Composing Software Book Introduction ❤️"
     },
     {
         key: 7,
@@ -157,13 +162,13 @@ const references = [
 
 export default function References () {
     return (
-        <React.Fragment>
+        <Fragment>
             <PostSectionHeader>References and Other Goodies</PostSectionHeader>
             <ul>
                 {
                     references.map(({text,...rest}) => <StyledAnchor {...rest}>{text}</StyledAnchor>)
                 }
             </ul>
-        </React.Fragment>
+        </Fragment>
     )
 }

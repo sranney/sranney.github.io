@@ -1,5 +1,5 @@
 //node modules
-import React from "react";
+import React, {lazy, Fragment, Suspense} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //components
@@ -19,13 +19,17 @@ import useFetchData from "./helpers/hooks/useFetchData";
 import useThemeSetter from "./helpers/hooks/useThemeSetter";
 import {DataContext} from "./helpers/context/contexts";
 
-
 export default function App () {
+    //fetchData contains all the blog data that is fetched
+    //DataContext.Provider consumes this data and makes it available to all components
     const fetchData = useFetchData();
+    //themeState contains theme (either light or dark) and toggleTheme, a function that can be called to toggle the theme.
+    //calling toggleTheme sets the theme, which triggers an effect that changes body background image
+    //styled-components' ThemeProvider is passed themeState so that the styled components can utilize the theme where needed
     const themeState = useThemeSetter('light','dark');
 
     return (
-        <React.Fragment>
+        <Fragment>
             <GlobalStyles/>
             <Router>
                 <DataContext.Provider value={fetchData}>                       
@@ -41,6 +45,6 @@ export default function App () {
                     </ThemeProvider>
                 </DataContext.Provider>
             </Router>
-        </React.Fragment>
+        </Fragment>
     )
 };

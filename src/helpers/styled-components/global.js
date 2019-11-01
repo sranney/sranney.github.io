@@ -1,7 +1,7 @@
 import {createGlobalStyle, keyframes} from 'styled-components';
 
 const backgroundUrl = 'https://mylearningposts-api.herokuapp.com/images/';
-const lightBackground = 'eberhard-grossgasteiger-5P91SF0zNsI-unsplash';
+const lightBackground = 'eberhard-grossgasteiger-5P91SF0zNsI-unsplash_edited_edited';
 const darkBackground = 'casey-horner-XE2RmuV6ed0-unsplash';
 
 const GlobalStyles = createGlobalStyle`
@@ -12,19 +12,10 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         min-height: 100vh;
         font-family: 'Raleway', serif;
-        background-image: url(${backgroundUrl}${lightBackground}.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
-
-        &.dark {
-            background-image: url(${backgroundUrl}${darkBackground}.jpg);
-        }
-        
-        &.light {
-            background-image: url(${backgroundUrl}${lightBackground}.jpg);
-        }
     }
     twitter-widget {
         margin-left: auto;

@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React, {lazy, Suspense} from "react";
 
 import TwitterQuote from "../blog/TwitterQuote";
 
+import {StyledImage} from "../../helpers/styled-components/images";
 import {FlexWrapper} from "../../helpers/styled-components/containers";
 import { PostPar, PostTitle, PostSectionHeader} from "../../helpers/styled-components/typography";
-import {StyledImage} from "../../helpers/styled-components/assets";
 
 const IntroArr = [
     {
@@ -15,7 +15,7 @@ const IntroArr = [
     {
         key: 1,
         type: 'par',
-        content: 'It goes without saying that learning new technology can be quite overwhelming. 🥵',
+        content: 'Engineering requires understanding how to use certain technology as tools. It goes without saying that learning new technology can be quite overwhelming. 🥵',
         underline: false
     },
     {
@@ -173,7 +173,7 @@ const IntroArr = [
         key: 28,
         type: 'image',
         content: 'https://mylearningposts-api.herokuapp.com/images/how-to-determine-what-not-to-learn.jpg',
-        underline: false
+        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/how-to-determine-what-not-to-learn_edited.jpg'
     },
     {
         key: 1000,
@@ -239,6 +239,21 @@ const IntroArr = [
         underline: true   
     },
     {
+        key: 1236,
+        type: 'sectionheader',
+        content: 'Be a craftsman, not a cowboy'
+    },
+    {
+        key: 1890,
+        type: 'par',
+        content: 'Software design has a lot to do with composition. Composition is not a phrase unique to software engineering. It is a term used throughout many different '
+    },
+    {
+        key: 1891,
+        type: 'par',
+        content: ''
+    },
+    {
         key: 38,
         type: 'sectionheader',
         content: 'So you want to learn a technology? Read the manual first.'
@@ -254,6 +269,11 @@ const IntroArr = [
         type: 'par',
         content: 'Kent C Dodds is one of the most respected JavaScript engineers today. Recently, he posted this tweet in a discussion about Redux and colocation of state:',
         underline: false
+    },
+    {
+        key: 1234,
+        type: 'twitter',
+        content: 'https://twitter.com/kentcdodds/status/1176490279282458624?ref_src=twsrc%5Etfw'
     },
     {
         key: 41,
@@ -276,7 +296,7 @@ const IntroArr = [
     {
         key: 44,
         type: 'par',
-        content: 'For software there is always one set of documentation, one source of truth from which all other blogs, video courses, etc. are written from. The official documentation on the software is that OG. Personal experience while important as the next step after reading through the official docs, can introduce bias and thus stray from the documentation. Any way that you look at it, reading someone\'s blog or watching someone\'s course unless they have actually been involved in the creation of the tool, is inevitably just that individual\'s perspective on the tool. What could be even worse, is that you don\'t know how many degrees of separation the author of a blog is from the actual documentation. Every degree adds additional bias, adds different twists and ultimately gets away from "Why does the technology exist?" and "What problems does it solve?". 📞 You end up focusing on how to use it, and forget about the intended use for a technology or the appropriate application. That\'s why a lot of software ends up being written poorly. Developers aren\'t asking the questions that matter when writing software, they are focused on how to implement.',
+        content: 'For most software there is always one set of documentation, one source of truth from which all other blogs, video courses, etc. are written from. The official documentation on the software is that OG. Personal experience while important as the next step after reading through the official docs, can introduce bias and thus stray from the documentation. Any way that you look at it, reading someone\'s blog or watching someone\'s course unless they have actually been involved in the creation of the tool, is inevitably just that individual\'s perspective on the tool. What could be even worse, is that you don\'t know how many degrees of separation the author of a blog is from the actual documentation. Every degree adds additional bias, adds different twists and ultimately gets away from "Why does the technology exist?" and "What problems does it solve?". 📞 You end up focusing on how to use it, and forget about the intended use for a technology or the appropriate application. That\'s why a lot of software ends up being written poorly. Developers aren\'t asking the questions that matter when writing software, they are focused on how to implement.',
         underline: false
     },
     {
@@ -370,7 +390,7 @@ const IntroArr = [
     {
         key: 60,
         type: 'par',
-        content: 'Meetups are a great way to meet people as well. Put the fear of meeting other people aside. It is in most cases just in your head. I met someone who is a bit of a mentor to me at a meetup once. This was two years ago, when I started to learn development. I just told him that I was new, and wanted to learn from someone who had been in the industry for a long time. I asked if I could meet him for coffee. I came prepared with a list of questions. He has been extremely reliable, and two years later, he even came to my wedding! You can meet all different types of people who will share with you. You just have to open up and share with them.',
+        content: 'Meetups are a great way to meet people as well. Put the fear of meeting other people aside. It is in most cases in your head. I met someone who is a bit of a mentor to me at a meetup once. This was two years ago, when I started to learn development. I just told him that I was new, and wanted to learn from someone who had been in the industry for a long time. I asked if I could meet him for coffee. I came prepared with a list of questions. He has been extremely reliable, and two years later, he even came to my wedding! You can meet all different types of people who will share with you. You just have to open up and share with them.',
         underline: false
     },
     {
@@ -382,7 +402,7 @@ const IntroArr = [
     {
         key: 62,
         type: 'sectionheader',
-        content: 'The more time that you put into learning development, the more you will receive.'
+        content: 'The more time that you put into learning engineering, the more you will receive.'
     },
     {
         key: 63,
@@ -405,7 +425,8 @@ const IntroArr = [
     {
         key: 66,
         type: 'image',
-        content: 'https://mylearningposts-api.herokuapp.com/images/code%20apps.jpg'
+        content: 'https://mylearningposts-api.herokuapp.com/images/code%20apps.jpg',
+        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/code%20apps_edited.jpg'
     },
     {
         key: 67,
@@ -422,13 +443,14 @@ const IntroArr = [
     {
         key: 69,
         type: 'par',
-        content: 'If you use OSS, GitHub is typically the place where the code for that OSS is stored for you to view. You can watch for any updates to the OSS\'s repo by clicking on watch at the top of its page. This will send you notifications on pull requests, on issues, and on releases that have been made. Some of the best discussions for understanding the internals for the software can be found by reading the discussions that exist there. In addition to this, paying attention to whose names you frequently see can give you more insight into additional developers you should pay attention to. They often have Twitter accounts too.',
+        content: 'If you use OSS, GitHub is typically the place where the code for that OSS is stored for you to view. You can watch for any updates to the OSS\'s repo by clicking on watch at the top of its page. This will send you notifications on pull requests, on issues, and on releases that have been made. Some of the best discussions for understanding the internals for the software can be found by reading the discussions that exist there. It will feel like you\'ve opened the flood gates with how much information that will come at you. But just reading the titles for the notifications can more often than not give you enough information about whether or not you are interested in reading more about the particular conversation. In addition to this, paying attention to whose names you frequently see can give you more insight into additional developers you should pay attention to. They often have Twitter accounts too.',
         underline: false
     },
     {
         key: 70,
         type: 'image',
-        content: 'https://mylearningposts-api.herokuapp.com/images/Github.png'
+        content: 'https://mylearningposts-api.herokuapp.com/images/Github.png',
+        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/Github_edited.png'
     },
     {
         key: 71,
@@ -492,11 +514,21 @@ const IntroArr = [
         type: 'par',
         content: '"If I have seen further it is by standing on the shoulders of Giants." - Isaac Newton',
         underline: false
+    },
+    {
+        key: 82,
+        type: 'sectionheader',
+        content: 'Using agile principals while putting what you are learning to practice',
+    },
+    {
+        key: 83,
+        type: 'par',
+        content: 'Important to learning anything '
     }
 ]
 
 export default function Blog () {
-    return IntroArr.map(({type,content,underline, key})=>{
+    return IntroArr.map(({type,content,underline,fallbackContent,key})=>{
         switch(type) {
             case 'par':
                 return <PostPar underline={underline} key={key}>{content}</PostPar>;
@@ -507,7 +539,7 @@ export default function Blog () {
             case 'twitter':
                 return <TwitterQuote url={content} key={key}/>;
             case 'image':
-                return <FlexWrapper key={key}><StyledImage src={content} /></FlexWrapper>;
+                return <FlexWrapper key={key}><StyledImage src={content}/></FlexWrapper>;
             default:
                 return <></>;
         }
