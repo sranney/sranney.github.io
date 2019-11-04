@@ -1,10 +1,14 @@
-import React, {lazy, Suspense} from "react";
+import React from "react";
 
 import TwitterQuote from "../blog/TwitterQuote";
+import InViewImage from "../general/InViewImage";
 
-import {StyledImage} from "../../helpers/styled-components/images";
 import {FlexWrapper} from "../../helpers/styled-components/containers";
 import { PostPar, PostTitle, PostSectionHeader} from "../../helpers/styled-components/typography";
+
+import GitHub from "../../images/Github_edited.jpg";
+import CodeApps from "../../images/code-apps_edited.jpg";
+import WhatNotToLearn from "../../images/how-to-determine-what-not-to-learn_edited.jpg";
 
 const IntroArr = [
     {
@@ -173,7 +177,7 @@ const IntroArr = [
         key: 28,
         type: 'image',
         content: 'https://mylearningposts-api.herokuapp.com/images/how-to-determine-what-not-to-learn.jpg',
-        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/how-to-determine-what-not-to-learn_edited.jpg'
+        fallbackContent: WhatNotToLearn
     },
     {
         key: 1000,
@@ -426,7 +430,7 @@ const IntroArr = [
         key: 66,
         type: 'image',
         content: 'https://mylearningposts-api.herokuapp.com/images/code%20apps.jpg',
-        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/code%20apps_edited.jpg'
+        fallbackContent: CodeApps
     },
     {
         key: 67,
@@ -450,7 +454,7 @@ const IntroArr = [
         key: 70,
         type: 'image',
         content: 'https://mylearningposts-api.herokuapp.com/images/Github.png',
-        fallbackContent: 'https://mylearningposts-api.herokuapp.com/images/Github_edited.png'
+        fallbackContent: GitHub
     },
     {
         key: 71,
@@ -539,11 +543,9 @@ export default function Blog () {
             case 'twitter':
                 return <TwitterQuote url={content} key={key}/>;
             case 'image':
-                return <FlexWrapper key={key}><StyledImage src={content}/></FlexWrapper>;
+                return <FlexWrapper key={key}><InViewImage imgSrc={content} fallbackImgSrc={fallbackContent}/></FlexWrapper>;
             default:
                 return <></>;
         }
     });
-}
-
-
+};

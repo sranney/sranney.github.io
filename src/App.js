@@ -1,9 +1,10 @@
 //node modules
-import React, {lazy, Fragment, Suspense} from "react";
+import React, {Fragment} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //components
 import Header from "./components/general/Header";
+import BackgroundImg from "./components/general/BackgroundImg";
 
 //styled components
 import GlobalStyles from "./helpers/styled-components/global";
@@ -17,7 +18,11 @@ import Search from "./components/Search";
 //other helpers
 import useFetchData from "./helpers/hooks/useFetchData";
 import useThemeSetter from "./helpers/hooks/useThemeSetter";
+
 import {DataContext} from "./helpers/context/contexts";
+
+//images
+import lightThemeImage from "./images/lightThemeImage.jpg";
 
 export default function App () {
     //fetchData contains all the blog data that is fetched
@@ -44,6 +49,10 @@ export default function App () {
                         </div>
                     </ThemeProvider>
                 </DataContext.Provider>
+                <BackgroundImg
+                    imgSrc="https://mylearningposts-api.herokuapp.com/images/lightThemeImage.jpg"
+                    fallbackImgSrc={lightThemeImage}
+                />
             </Router>
         </Fragment>
     )

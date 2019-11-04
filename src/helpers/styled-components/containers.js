@@ -9,6 +9,11 @@ export const FlexWrapper = styled.div`
     align-items: center;
 `;
 
+export const OverflowHiddenWrapper = styled.div`
+    overflow: hidden;
+    width: 100vh
+`;
+
 export const HeaderContainer = styled(FlexWrapper)`
     padding: 0 16px;
     z-index: 100000000;
@@ -41,4 +46,14 @@ export const PostBody = styled.div`
     @media(max-width: 480px) {
         margin-top: 0;
     }
+`;
+
+export const BackgroundImg = styled.img`
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    object-fit: cover;
 `;

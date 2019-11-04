@@ -11,11 +11,15 @@ module.exports = {
         rules: [
             {
                 test: /\.(js)$/,
-                use: 'babel-loader'
+                use: ['babel-loader']
             },
             {
                 test: /\.scss$/,
                 use: ['style-loader','css-loader','sass-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
             }
         ]
     },
