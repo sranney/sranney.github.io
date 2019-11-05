@@ -1,14 +1,12 @@
-import React, {useContext} from "react";
-import {ThemeContext, ThemeProvider} from "styled-components";
+import React from "react";
 
-import {BackgroundImg as BackgroundImgContainer} from "../../helpers/styled-components/containers";
+import {BackgroundImg as BackgroundImgContainer} from "../../helpers/styled-components/images";
 
-import useLazyImgLoader from "../../helpers/hooks/useLazyImgLoader";
+import useLazyImgLoaderThemeSwitcher from "../../helpers/hooks/useLazyImgLoaderThemeSwitcher";
 
-export default function BackgroundImg ({imgSrc = "",fallbackImgSrc = ""}) {
-    const src = useLazyImgLoader(imgSrc,fallbackImgSrc);
-    const theme = useContext(ThemeContext);
-    
+export default function BackgroundImg () {
+    const src = useLazyImgLoaderThemeSwitcher();
+
     return (
         <BackgroundImgContainer src={src}/>
     );

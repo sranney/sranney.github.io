@@ -21,9 +21,6 @@ import useThemeSetter from "./helpers/hooks/useThemeSetter";
 
 import {DataContext} from "./helpers/context/contexts";
 
-//images
-import lightThemeImage from "./images/lightThemeImage.jpg";
-
 export default function App () {
     //fetchData contains all the blog data that is fetched
     //DataContext.Provider consumes this data and makes it available to all components
@@ -49,11 +46,10 @@ export default function App () {
                         </div>
                     </ThemeProvider>
                 </DataContext.Provider>
-                <BackgroundImg
-                    imgSrc="https://mylearningposts-api.herokuapp.com/images/lightThemeImage.jpg"
-                    fallbackImgSrc={lightThemeImage}
-                />
             </Router>
+            <DataContext.Provider value={themeState}>
+                <BackgroundImg />
+            </DataContext.Provider>
         </Fragment>
     )
 };

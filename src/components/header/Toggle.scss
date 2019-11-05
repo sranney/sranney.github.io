@@ -43,20 +43,16 @@
   padding: 5px;
   box-sizing: border-box;
   border-radius: 30px;
-  background-color: var(--color-primary-500);
+  background-color: var(--color-primary-800);
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   transition: all 0.2s ease;
   .light & {
-      border: 3px solid var(--color-primary-500);
+      border: 3px solid var(--color-primary-800);
   }
   .dark & {
       border: 3px solid var(--color-neutral-100);
   }
-}
-
-.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: var(--color-primary-600);
 }
 
 .react-toggle--checked .react-toggle-track {
