@@ -40,8 +40,8 @@ export default function App () {
                             <Header/>
                             <Switch location={location}>
                                 <Route exact path='/' render={props=><Blog id="0000"/>}/>
-                                <Route path='/blog/:id' render={({match})=><Blog id={match.params.id}/>}/>
-                                <Route path='/bloglist/:searchterm?' component={Search}/>
+                                <Route path='/post/:id' render={({match})=><Blog id={match.params.id}/>}/>
+                                <Route path='/postlist/:searchterm?' component={Search}/>
                             </Switch>
                         </div>
                     </ThemeProvider>

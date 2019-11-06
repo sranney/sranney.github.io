@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
-import { StyledAnchor, PostSectionHeader } from "../../helpers/styled-components/typography";
+import { PostSectionHeader } from "../../helpers/styled-components/typography";
+import { StyledAnchorBlock } from "../../helpers/styled-components/links";
 
 export default function References ({references}) {
     return (
@@ -7,7 +8,7 @@ export default function References ({references}) {
             <PostSectionHeader>References and Other Goodies</PostSectionHeader>
             <ul>
                 {
-                    references.map(({text,...rest}) => <StyledAnchor {...rest}>{text}</StyledAnchor>)
+                    references.map(({text, href, key}) => <StyledAnchorBlock key={key} href={(!href.includes('https') && `https://${href}`) || href} size='xsmall'>{text}</StyledAnchorBlock>)
                 }
             </ul>
         </Fragment>

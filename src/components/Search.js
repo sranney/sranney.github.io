@@ -2,13 +2,16 @@ import React, {useState, useContext} from "react";
 
 import NoMatchOrError from "./general/NoMatchOrError";
 import SearchBar from "./search/SearchBar";
-import Entries from "./general/Entries";
+import PostCards from "./general/PostCards";
+import Loader from "./general/Loader";
 
 import {DataContext} from "../helpers/context/contexts";
+import {ThemeContext} from "styled-components";
 import useSearchFilter from "../helpers/hooks/useSearchFilter";
 
 export default function Search ({match: {params: {searchterm}}}) {
     const [blogs, isLoaded, error] = useContext(DataContext);
+    const {theme} = useContext(ThemeContext);
     const [searchValue, setSearchValue] = useState("");
     const [filteredBlogs] = useSearchFilter(blogs,searchValue||searchterm);
 
@@ -23,10 +26,16 @@ export default function Search ({match: {params: {searchterm}}}) {
         return <NoMatchOrError msgType="error" resType="search" id={searchterm ? searchterm : ""}/>;
     }
 
+    if(!isLoaded) {
+        return <Loader theme={theme} wrapper='notblock'/>;
+    }
+
     return (
         <div>
             <SearchBar onChange={onSearchChange} reset={resetSearch} value={searchValue}/>
-            <Entries blogList={((searchValue.length === 0 && searchterm && searchterm.length === 0) && blogs) || filteredBlogs} linkDisplay={false} id={searchValue}/>
+            <PostCards 
+                blogList={((searchValue.length === 0 && searchterm && searchterm.length === 0) && blogs) || filteredBlogs} linkDisplay={false} id={searchValue}
+            />
         </div>
     );
 };

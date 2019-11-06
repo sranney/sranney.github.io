@@ -10,7 +10,7 @@ export default function NoMatch ({msgType, resType, id, linkDisplay=true}) {
                 :
                     <p>Error retrieving your requested data: {resType} with {resType === 'blog' ? "id" : "search term"}: {id}</p>
             }
-            {linkDisplay && <Link className='link' to="/blogList">Click here to return to all posts</Link>}
+            {linkDisplay && <Link className='link' to="/postlist">Click here to return to all posts</Link>}
         </Fragment>
     )
 }

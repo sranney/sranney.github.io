@@ -28,6 +28,7 @@
     "react-router-dom": "^5.1.0",
     "react-toggle": "^4.1.1",
     "react-transition-group": "^4.3.0",
+    "react-twitter-embed": "^3.0.3",
     "sass-loader": "^8.0.0",
     "styled-components": "^4.4.0"
   },

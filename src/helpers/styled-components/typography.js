@@ -4,35 +4,27 @@ import {Link} from "react-router-dom";
 //mixins used in typography - sets the color of font and background colors depending on the theme
 import {fontColor,backgroundColor} from "./mixins/themeColor";
 
+import {fontSize} from "./mixins/typography";
+
 //typography animations
 const typingEffect = keyframes`
     from {width: 0;}
     to {width: 100%;}
 `;
-const blinkCaret = keyframes`
+const blinkCaretLight = keyframes`
     from,to {border-color: transparent;}
     50% {border-color: var(--color-neutral-800);}
 `;
+const blinkCaretDark = keyframes`
+    from,to {border-color: transparent;}
+    50% {border-color: var(--color-neutral-0);}
+`;
+
+const blinkCaretTheme = ({theme: {theme}}) => theme === 'light' ? blinkCaretLight : blinkCaretDark;
 
 //base styling for all paragraph tags on site
 const Type = styled.p`
     color: ${fontColor};
-`;
-
-//adding some styling to the react router Link component
-export const HeaderLink = styled(Link)`
-    text-decoration: none;
-    color: ${fontColor};    
-    padding: .75em;
-    margin-top: 16px;
-    background-color: ${backgroundColor};
-    font-size: 2rem;
-    @media (max-width: 800px) {
-        font-size: 1.5rem;
-    }
-    @media (max-width: 480px) {
-        background-color: transparent;
-    }
 `;
 
 //strictly for header title
@@ -49,7 +41,7 @@ export const HeaderPar = styled(Type)`
     letter-spacing: 0.15em;
     white-space: nowrap;
     overflow: hidden;
-    animation: ${blinkCaret} .7s step-end 8, ${typingEffect} 3.6s steps(25, end);
+    animation: ${blinkCaretTheme} .7s step-end 8, ${typingEffect} 3.6s steps(25, end);
     @media (max-width: 480px) {
         animation: none
         text-align: center;
@@ -78,10 +70,6 @@ export const PostPar = styled(Type)`
     text-decoration: ${({underline}) => underline && 'underline'};
 `;
 
-
-export const StyledAnchor = styled.a`
+export const StyledEm = styled.em`
     color: ${fontColor};
-    text-decoration: none;
-    font-size: var(--font-size-xsmall);
-    display: block;
 `;

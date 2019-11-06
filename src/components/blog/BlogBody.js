@@ -1,9 +1,8 @@
 import React from "react";
 
-import TwitterQuote from "../general/TwitterQuote";
 import InViewImage from "../general/InViewImage";
 
-import { FlexWrapper } from "../../helpers/styled-components/containers";
+import { FlexContainer, TwitterQuote } from "../../helpers/styled-components/containers";
 import { PostPar, PostTitle, PostSectionHeader } from "../../helpers/styled-components/typography";
 
 export default function BlogBody({body}) {
@@ -18,9 +17,9 @@ export default function BlogBody({body}) {
             case 'github':
                 return <GitCodeBlock src={content} />;
             case 'twitter':
-                return <TwitterQuote url={content} key={key} />;
+                return <TwitterQuote tweetId={content} />;
             case 'image':
-                return <FlexWrapper key={key}><InViewImage imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexWrapper>;
+                return <FlexContainer key={key}><InViewImage imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexContainer>;
             default:
                 return <></>;
         }

@@ -345,6 +345,10 @@ const GlobalStyles = createGlobalStyle`
         --color-accent-900-alpha-8: rgba(1, 87, 155,0.8);
         --color-accent-900-alpha-9: rgba(1, 87, 155,0.9);
 
+        --color-danger-500: #f44336;
+        --color-danger-800: #b71c1c;
+        --color-danger-1000: #400000;
+
         --font-size-jumbo: 3rem;
         --font-size-xxlarge: 2rem;
         --font-size-xlarge: 1.5rem;

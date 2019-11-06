@@ -9,7 +9,8 @@ import {ThemeContext} from "styled-components";
 //styled components!!!
 import { HeaderContainer, BtnNav} from "../../helpers/styled-components/containers";
 import {PrimaryButton, ThemeButton} from "../../helpers/styled-components/buttons";
-import { HeaderTitle, HeaderLink, HeaderPar} from "../../helpers/styled-components/typography";
+import { HeaderTitle, HeaderPar} from "../../helpers/styled-components/typography";
+import {HeaderLink} from "../../helpers/styled-components/links";
 
 export default function Header() {
     const noGreaterThan500 = useMediaPredicate("(max-width: 500px)");
@@ -18,7 +19,7 @@ export default function Header() {
         <HeaderContainer>
             <HeaderLink to='/'>
                 <HeaderTitle>F•T•L•O•E</HeaderTitle>
-                <HeaderPar>For The Love of Engineering</HeaderPar>   
+                <HeaderPar>For the Love of Engineering</HeaderPar>   
             </HeaderLink>
             <BtnNav>
                 {
@@ -27,7 +28,7 @@ export default function Header() {
                     :
                         <ThemeButton onClick={toggleTheme}/>
                 }
-                <Link to='/bloglist'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>Posts</PrimaryButton></Link>
+                <Link to='/postlist'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>Posts</PrimaryButton></Link>
             </BtnNav>
         </HeaderContainer>
     )

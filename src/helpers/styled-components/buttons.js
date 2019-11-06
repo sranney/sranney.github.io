@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import {fontColor} from "./mixins/themeColor";
+import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from "./mixins/themeColor";
 import {fontSize} from "./mixins/typography";
 import {blockWidth,boxShadow} from "./mixins/content";
 
-const borderColor = ({ theme: { theme } }) => theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)';
-const backgroundColor = ({ theme: { theme } }) => theme === 'dark' ? 'var(--color-primary-800)' : 'var(--color-neutral-0)';
+const dangerFontColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-danger-800)' : 'var(--color-neutral-0)';
+const dangerBackgroundColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-neutral-0)' : 'var(--color-danger-1000)';
 
 export const Button = styled.button`
     padding: 1em;
@@ -13,7 +13,7 @@ export const Button = styled.button`
     font-size: ${fontSize};
     width: ${blockWidth};
     border: 2px solid transparent;
-    margin: 8px;
+    margin: ${({block})=>block&&"8px 0"||"8px"};
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,6 +49,20 @@ export const PrimaryButton = styled(Button) `
     }
 `;
 
+export const DangerButton = styled(Button)`
+    background-color: ${dangerBackgroundColor};
+    color: ${dangerFontColor};
+    &:hover,
+    &:hover:focus {
+        background-color: ${dangerBackgroundColor};
+        transform: none;
+        box-shadow: none;
+    }
+    @media (max-width: 700px) {
+        font-size: var(--font-size-base);
+    }
+`;
+
 export const ThemeButton = styled(PrimaryButton)`
     position: relative;
 
@@ -62,4 +76,3 @@ export const ThemeButton = styled(PrimaryButton)`
         transform: translate(-50%,-50%);
     }
 `;
-
