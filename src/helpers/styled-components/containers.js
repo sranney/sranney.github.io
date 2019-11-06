@@ -9,6 +9,17 @@ export const FlexWrapper = styled.div`
     align-items: center;
 `;
 
+export const CenteredContentWrapper = styled.div`
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+`;
+
+export const CenteredBlockContentWrapper = styled.div`
+    margin: 16px auto;
+`;
+
 export const OverflowHiddenWrapper = styled.div`
     overflow: hidden;
     width: 100vh

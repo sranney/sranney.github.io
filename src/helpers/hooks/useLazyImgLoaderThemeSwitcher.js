@@ -23,7 +23,6 @@ const reducer = (state, action) => {
 };
 
 export default function useLazyImgLoaderThemeSwitcher() {
-    console.log(DataContext);
     const {theme} = useContext(DataContext);
     const [{imgSrc,fallbackImgSrc}, dispatch] = useReducer(reducer,
         {

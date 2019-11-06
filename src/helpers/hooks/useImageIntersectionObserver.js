@@ -1,18 +1,34 @@
-import React, {useState,useEffect} from "react";
+import React, {useReducer,useEffect} from "react";
 
 import {useInView} from "react-intersection-observer";
 
-export default function useImageIntersectionObserver (imgSrc,fallbackImgSrc) {
-    const [src, setSrc] = useState(fallbackImgSrc);
-    const [ref, inView, entry] = useInView();
+const reducer = (state,action) => {
+    if(action.type === 'loading') {
+        return {...state,isLoading: true};
+    } else if(action.type === 'loaded') {
+        return {isLoading: false, src: action.data};
+    }
+    return state;
+}
+
+export default function useImageIntersectionObserver (imgSrc) {
+    const [{src, isLoading}, dispatch] = useReducer(
+        reducer,
+        {
+            src: null,
+            isLoading: false
+        }
+    );
+    const [ref, inView] = useInView();
 
     useEffect(()=>{
         if(inView && src !== imgSrc) {
             const image = new Image();
             image.src = imgSrc;
-            image.onload = () => setSrc(imgSrc);
+            dispatch({type: 'loading'});
+            image.onload = () => dispatch({type: 'loaded', data: imgSrc});
         }
     }, [imgSrc, inView, src])
 
-    return [ref, src];
+    return [ref, src, isLoading];
 }

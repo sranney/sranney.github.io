@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@bit/davidhu2000.react-spinners.scale-loader": "^0.5.1",
     "node-sass": "^4.13.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

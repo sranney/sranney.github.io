@@ -12,7 +12,6 @@ import { ThemeProvider } from "styled-components";
 
 //pages
 import Blog from "./components/Blog";
-import Home from "./components/Home";
 import Search from "./components/Search";
 
 //other helpers
@@ -20,6 +19,7 @@ import useFetchData from "./helpers/hooks/useFetchData";
 import useThemeSetter from "./helpers/hooks/useThemeSetter";
 
 import {DataContext} from "./helpers/context/contexts";
+import { match } from "minimatch";
 
 export default function App () {
     //fetchData contains all the blog data that is fetched
@@ -39,8 +39,8 @@ export default function App () {
                         <div>    
                             <Header/>
                             <Switch location={location}>
-                                <Route exact path='/' component={Home}/>
-                                <Route path='/blog/:id' component={Blog}/>
+                                <Route exact path='/' render={props=><Blog id="0000"/>}/>
+                                <Route path='/blog/:id' render={({match})=><Blog id={match.params.id}/>}/>
                                 <Route path='/bloglist/:searchterm?' component={Search}/>
                             </Switch>
                         </div>

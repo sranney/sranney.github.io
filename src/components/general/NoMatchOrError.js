@@ -2,7 +2,6 @@ import React, {Fragment} from "react";
 import {Link} from "react-router-dom";
 
 export default function NoMatch ({msgType, resType, id, linkDisplay=true}) {
-
     return (
         <Fragment>
             {

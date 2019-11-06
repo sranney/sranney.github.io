@@ -8,14 +8,14 @@ import {DataContext} from "../helpers/context/contexts";
 import useSearchFilter from "../helpers/hooks/useSearchFilter";
 
 export default function Search ({match: {params: {searchterm}}}) {
-    const [blogs, isLoading, error] = useContext(DataContext);
+    const [blogs, isLoaded, error] = useContext(DataContext);
     const [searchValue, setSearchValue] = useState("");
     const [filteredBlogs] = useSearchFilter(blogs,searchValue||searchterm);
 
     const onSearchChange = ({target: {value}}) => setSearchValue(value);
     const resetSearch = () => setSearchValue("");
 
-    if (blogs && blogs.length === 0 && !isLoading) {
+    if (blogs && blogs.length === 0 && isLoaded) {
         return <NoMatchOrError msgType="no match" resType="search" id={searchterm ? searchterm : ""}/>;
     }
 

@@ -7,22 +7,22 @@ const IS_LOADING = "IS_LOADING";
 const fetchReducer = ( state = {}, {type, data} = {} ) => {
     switch (type) {
         case SET_SUCCESS:
-            return {...state, goodResponse: data, isLoading: false, error: null};
+            return {...state, goodResponse: data, isLoaded: true, error: null};
         case SET_ERROR:
-            return {...state, goodResponse: [], isLoading: false, error: data};
+            return {...state, goodResponse: [], isLoaded: false, error: data};
         case IS_LOADING:
-            return {...state, isLoading: true};
+            return {...state, isLoaded: false};
         default:
             return {...state};
     }
 };
 
 export default function useFetchData () {
-    const [{goodResponse, isLoading, error}, dispatch] = useReducer(
+    const [{goodResponse, isLoaded, error}, dispatch] = useReducer(
         fetchReducer,
         {
             goodResponse: null,
-            isLoading: false,
+            isLoaded: false,
             error: null
         }
     )
@@ -36,5 +36,5 @@ export default function useFetchData () {
             .catch(err => dispatch({type: SET_ERROR, data: err}));
     },[]);
 
-    return [goodResponse, isLoading, error];
+    return [goodResponse, isLoaded, error];
 };
