@@ -19,7 +19,7 @@ export const BackgroundImg = styled.div`
     height: 100vh;
     position: fixed;
     object-fit: cover;
-    background-image: url('${src}');
+    background-image: url('${({src})=>src}');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
