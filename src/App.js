@@ -39,7 +39,8 @@ export default function App () {
                         <div>    
                             <Header/>
                             <Switch location={location}>
-                                <Route exact path='/' render={props=><Blog id="0000"/>}/>
+								{/*<Route exact path='/' render={props=><Blog id="0000"/>}/>*/}
+								<Route exact path='/' component={About}/>
                                 <Route path='/post/:id' render={({match})=><Blog id={match.params.id}/>}/>
                                 <Route path='/postlist/:searchterm?' component={Search}/>
                                 <Route path='/about' component={About}/>

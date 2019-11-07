@@ -7,6 +7,8 @@ import useLazyImgLoaderThemeSwitcher from "../../helpers/hooks/useLazyImgLoaderT
 export default function BackgroundImg () {
     const [src, fallbackImgSrc] = useLazyImgLoaderThemeSwitcher();
 
+	console.log("here");
+
     return (
         <Fragment>
             <BackgroundImg1 src={fallbackImgSrc} fade={src !== fallbackImgSrc}/>
