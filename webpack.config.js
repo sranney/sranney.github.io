@@ -21,7 +21,7 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
-                    outputPath: (url, resourcePath, context) => path.relative(context, resourcePath)
+                    outputPath: "/src/images"
                 }
             }
         ]
