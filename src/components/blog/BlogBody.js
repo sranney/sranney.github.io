@@ -15,9 +15,9 @@ export default function BlogBody({body}) {
             case 'sectionheader':
                 return <PostSectionHeader key={key}>{content}</PostSectionHeader>;
             case 'github':
-                return <GitCodeBlock src={content} />;
+                return <GitCodeBlock key={key} src={content} />;
             case 'twitter':
-                return <TwitterQuote tweetId={content} />;
+                return <TwitterQuote key={key} tweetId={content} />;
             case 'image':
                 return <FlexContainer key={key}><InViewImage imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexContainer>;
             default:
