@@ -12,13 +12,17 @@ export const StyledImage = styled.img`
     margin-right: auto;
 `;
 
-export const BackgroundImg = styled.img`
+export const BackgroundImg = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     position: fixed;
     object-fit: cover;
+    background-image: url('${src}');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 `;
 
 export const BackgroundImg1 = styled(BackgroundImg)`
@@ -26,7 +30,7 @@ export const BackgroundImg1 = styled(BackgroundImg)`
     animation-name: ${({fade}) => fade && fadeOut};
     animation-fill-mode: forwards;
     animation-duration: 5s;
-    animation-delay: 1s;
+    animation-delay: 2s;
     animation-iteration-count: 1;
 `;
 
