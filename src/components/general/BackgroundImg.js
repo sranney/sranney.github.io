@@ -7,7 +7,5 @@ import useLazyImgLoaderThemeSwitcher from "../../helpers/hooks/useLazyImgLoaderT
 export default function BackgroundImg () {
     const src = useLazyImgLoaderThemeSwitcher();
 
-    return (
-        <BackgroundImgContainer src={src}/>
-    );
+    return <BackgroundImgContainer src={src}/>;
 };

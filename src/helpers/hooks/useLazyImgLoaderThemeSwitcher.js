@@ -37,5 +37,5 @@ export default function useLazyImgLoaderThemeSwitcher() {
         dispatch({type: theme});
     }, [theme]);
 
-    return src;
+    return fallbackImgSrc;
 };
