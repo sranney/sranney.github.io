@@ -12,5 +12,5 @@ export default function BackgroundImg () {
             <BackgroundImg1 src={fallbackImgSrc} fade={src !== fallbackImgSrc}/>
             <BackgroundImg2 src={src}/>
         </Fragment>
-    )
+    );
 };

@@ -29,6 +29,7 @@ export default function Header() {
                         <ThemeButton onClick={toggleTheme}/>
                 }
                 <Link to='/postlist'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>Posts</PrimaryButton></Link>
+                <Link to='/about'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>About</PrimaryButton></Link>
             </BtnNav>
         </HeaderContainer>
     )

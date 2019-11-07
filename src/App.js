@@ -13,13 +13,13 @@ import { ThemeProvider } from "styled-components";
 //pages
 import Blog from "./components/Blog";
 import Search from "./components/Search";
+import About from "./components/About";
 
 //other helpers
 import useFetchData from "./helpers/hooks/useFetchData";
 import useThemeSetter from "./helpers/hooks/useThemeSetter";
 
 import {DataContext} from "./helpers/context/contexts";
-import { match } from "minimatch";
 
 export default function App () {
     //fetchData contains all the blog data that is fetched
@@ -42,6 +42,7 @@ export default function App () {
                                 <Route exact path='/' render={props=><Blog id="0000"/>}/>
                                 <Route path='/post/:id' render={({match})=><Blog id={match.params.id}/>}/>
                                 <Route path='/postlist/:searchterm?' component={Search}/>
+                                <Route path='/about' component={About}/>
                             </Switch>
                         </div>
                     </ThemeProvider>

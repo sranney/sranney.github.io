@@ -19,7 +19,7 @@ export default function BlogBody({body}) {
             case 'twitter':
                 return <TwitterQuote key={key} tweetId={content} />;
             case 'image':
-                return <FlexContainer key={key}><InViewImage imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexContainer>;
+                return <FlexContainer key={key}><InViewImage loader imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexContainer>;
             default:
                 return <></>;
         }
