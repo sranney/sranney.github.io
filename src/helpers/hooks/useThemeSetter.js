@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 
 //hook used to toggle theme for application
 const useThemeSetter = (primary,secondary) => {
-    const [theme, setTheme] = useState(window.localStorage.getItem('theme') || primary);
+    const [theme, setTheme] = useState(window.localStorage.getItem('themex') || primary);
 
     //function that will be passed down to toggle to switch the app theme
     const toggleTheme = () => setTheme(theme => theme === primary ? secondary : primary);

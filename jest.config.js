@@ -17,6 +17,8 @@ module.exports = {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
+  modulePaths: ["<rootDir>/src/"],
+  
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -64,9 +66,10 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: [
+    "node_modules",
+    '<rootDir>/src'
+  ],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -116,7 +119,7 @@ module.exports = {
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
-  //   "<rootDir>"
+  //   "<rootDir>/src/"
   // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner

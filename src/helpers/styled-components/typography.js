@@ -70,6 +70,11 @@ export const PostPar = styled(Type)`
     text-decoration: ${({underline}) => underline && 'underline'};
 `;
 
+export const PostCaption = styled(Type)`
+    font-size: var(--font-size-base);
+    color: ${fontColor};
+`;
+
 export const StyledEm = styled.em`
     color: ${fontColor};
 `;

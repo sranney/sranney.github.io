@@ -44,9 +44,15 @@ export const HeaderContainer = styled(FlexContainer)`
 `;
 
 export const BtnNav = styled(FlexContainer)`
+    max-width: 800px;
     @media (max-width: 480px) {
         justify-content: center;
     }
+`;
+
+export const SectionBtnNav = styled(BtnNav)`
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 const PostGeneral = styled.div`
