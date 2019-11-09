@@ -1,10 +1,10 @@
-import styled, {keyframes} from "styled-components";
-import {Link} from "react-router-dom";
+import styled, {keyframes} from 'styled-components';
+import {Link} from 'react-router-dom';
 
 //mixins used in typography - sets the color of font and background colors depending on the theme
-import {fontColor,backgroundColor} from "./mixins/themeColor";
+import {fontColor,backgroundColor} from './mixins/themeColor';
 
-import {fontSize} from "./mixins/typography";
+import {fontSize} from './mixins/typography';
 
 //typography animations
 const typingEffect = keyframes`

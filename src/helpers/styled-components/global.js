@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+        overflow-x: hidden4;
     }
     twitter-widget {
         margin-left: auto;

@@ -1,5 +1,5 @@
-describe("useFetchData", () => {
-	it("should do something", () => {
+describe('useFetchData', () => {
+	it('should do something', () => {
 		
 	})
 });

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import InViewImage from "../general/InViewImage";
+import InViewImage from '../general/InViewImage';
 
-import { FlexContainer, TwitterQuote } from "../../helpers/styled-components/containers";
-import { PostPar, PostTitle, PostSectionHeader } from "../../helpers/styled-components/typography";
+import { FlexContainer, TwitterQuote } from '../../helpers/styled-components/containers';
+import { PostPar, PostTitle, PostSectionHeader } from '../../helpers/styled-components/typography';
 
 export default function BlogBody({body}) {
     return body.map(({ type, content, underline, fallbackContent, key }) => {

@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useReducer} from "react";
+import React, { useContext, useEffect, useReducer} from 'react';
 
-import {DataContext} from "../context/contexts";
-import useLazyImgLoader from "./useLazyImgLoader";
+import {DataContext} from '../context/contexts';
+import useLazyImgLoader from './useLazyImgLoader';
 
-import LightImgSrc from "../../images/lightThemeImage.jpg";
-import DarkImgSrc from "../../images/darkThemeImage.jpg";
+import LightImgSrc from '../../images/lightThemeImage.jpg';
+import DarkImgSrc from '../../images/darkThemeImage.jpg';
 
 const reducer = (state, action) => {
     if(action.type === 'light') {
@@ -32,7 +32,6 @@ export default function useLazyImgLoaderThemeSwitcher() {
     );
 
     const src = useLazyImgLoader(imgSrc, fallbackImgSrc);
-
     useEffect(() => {
         dispatch({type: theme});
     }, [theme]);

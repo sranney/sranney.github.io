@@ -1,6 +1,6 @@
-import React, {useReducer,useEffect} from "react";
+import React, {useReducer,useEffect} from 'react';
 
-import {useInView} from "react-intersection-observer";
+import {useInView} from 'react-intersection-observer';
 
 const reducer = (state,action) => {
     if(action.type === 'loading') {

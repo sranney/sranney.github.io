@@ -1,9 +1,9 @@
-import React, {useContext} from "react";
+import React, {useContext} from 'react';
 
-import {PostBody} from "../helpers/styled-components/containers";
+import {PostBody} from '../helpers/styled-components/containers';
 
-import References from "./blog/References";
-import BlogBody from "./blog/BlogBody";
+import References from './blog/References';
+import BlogBody from './blog/BlogBody';
 
 export default function Home() {
     if(loading) {
@@ -13,7 +13,7 @@ export default function Home() {
         return <div>error</div>;
     }
 
-    const blog = data && data.find(({key}) => key === "0000");
+    const blog = data && data.find(({key}) => key === '0000');
 
     return (
         <PostBody>

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from "./mixins/themeColor";
-import {fontSize} from "./mixins/typography";
-import {blockWidth,boxShadow} from "./mixins/content";
+import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from './mixins/themeColor';
+import {fontSize} from './mixins/typography';
+import {blockWidth,boxShadow} from './mixins/content';
 
 const dangerFontColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-danger-800)' : 'var(--color-neutral-0)';
 const dangerBackgroundColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-neutral-0)' : 'var(--color-danger-1000)';
@@ -13,7 +13,7 @@ export const Button = styled.button`
     font-size: ${fontSize};
     width: ${blockWidth};
     border: 2px solid transparent;
-    margin: ${({block})=>block&&"8px 0"||"8px"};
+    margin: ${({block})=>block&&'8px 0'||'8px'};
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;

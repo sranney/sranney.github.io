@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
-import {fontColor, backgroundColor} from "./mixins/themeColor";
-import {fontSize} from "./mixins/typography";
+import {fontColor, backgroundColor} from './mixins/themeColor';
+import {fontSize} from './mixins/typography';
 
 //adding some styling to the react router Link component
 export const StyledLink = styled(Link)`
@@ -15,7 +15,7 @@ export const StyledLink = styled(Link)`
 //styling for external links
 export const StyledAnchor = styled.a`
     color: ${fontColor};
-
+    font-size: ${fontSize};
 `;
 
 export const HeaderLink = styled(StyledLink)`
@@ -37,4 +37,10 @@ export const StyledLinkBlock = styled(StyledLink)`
 
 export const StyledAnchorBlock = styled(StyledAnchor)`
     display: block;
+`;
+
+export const StyledAbsoluteAnchor = styled(StyledAnchor)`
+    position: absolute;
+    top: 1%;
+    right: 5%;
 `;

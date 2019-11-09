@@ -1,25 +1,25 @@
 //node modules
-import React, {Fragment} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React, {Fragment} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 //components
-import Header from "./components/general/Header";
-import BackgroundImg from "./components/general/BackgroundImg";
+import Header from './components/general/Header';
+import BackgroundImg from './components/general/BackgroundImg';
 
 //styled components
-import GlobalStyles from "./helpers/styled-components/global";
-import { ThemeProvider } from "styled-components";
+import GlobalStyles from './helpers/styled-components/global';
+import { ThemeProvider } from 'styled-components';
 
 //pages
-import Blog from "./components/Blog";
-import Search from "./components/Search";
-import About from "./components/About";
+import Blog from './components/Blog';
+import Search from './components/Search';
+import About from './components/About';
 
 //other helpers
-import useFetchData from "./helpers/hooks/useFetchData";
-import useThemeSetter from "./helpers/hooks/useThemeSetter";
+import useFetchData from './helpers/hooks/useFetchData';
+import useThemeSetter from './helpers/hooks/useThemeSetter';
 
-import {DataContext} from "./helpers/context/contexts";
+import {DataContext} from './helpers/context/contexts';
 
 export default function App () {
     //fetchData contains all the blog data that is fetched
@@ -39,7 +39,7 @@ export default function App () {
                         <div>    
                             <Header/>
                             <Switch location={location}>
-								{/*<Route exact path='/' render={props=><Blog id="0000"/>}/>*/}
+								{/*<Route exact path='/' render={props=><Blog id='0000'/>}/>*/}
 								<Route exact path='/' component={About}/>
                                 <Route path='/post/:id' render={({match})=><Blog id={match.params.id}/>}/>
                                 <Route path='/postlist/:searchterm?' component={Search}/>

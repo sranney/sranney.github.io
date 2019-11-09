@@ -28,6 +28,7 @@
     "react-intersection-observer": "^8.25.1",
     "react-media-hook": "^0.4.4",
     "react-router-dom": "^5.1.0",
+    "react-swipeable-views": "^0.13.3",
     "react-toggle": "^4.1.1",
     "react-transition-group": "^4.3.0",
     "react-twitter-embed": "^3.0.3",

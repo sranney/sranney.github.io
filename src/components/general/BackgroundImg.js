@@ -1,13 +1,11 @@
-import React, {Fragment} from "react";
+import React, {Fragment} from 'react';
 
-import {BackgroundImg1, BackgroundImg2} from "../../helpers/styled-components/images";
+import {BackgroundImg1, BackgroundImg2} from '../../helpers/styled-components/images';
 
-import useLazyImgLoaderThemeSwitcher from "../../helpers/hooks/useLazyImgLoaderThemeSwitcher";
+import useLazyImgLoaderThemeSwitcher from '../../helpers/hooks/useLazyImgLoaderThemeSwitcher';
 
 export default function BackgroundImg () {
     const [src, fallbackImgSrc] = useLazyImgLoaderThemeSwitcher();
-
-	console.log("here");
 
     return (
         <Fragment>

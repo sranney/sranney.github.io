@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ToggleIcon = styled.span`
     position: absolute;
