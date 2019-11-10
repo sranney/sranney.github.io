@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useReducer} from 'react';
 
-import {DataContext} from '../context/contexts';
+import {ThemeContext} from 'styled-components';
 import useLazyImgLoader from './useLazyImgLoader';
 
 import LightImgSrc from '../../images/lightThemeImage.jpg';
@@ -23,7 +23,7 @@ const reducer = (state, action) => {
 };
 
 export default function useLazyImgLoaderThemeSwitcher() {
-    const {theme} = useContext(DataContext);
+    const { theme } = useContext(ThemeContext);
     const [{imgSrc,fallbackImgSrc}, dispatch] = useReducer(reducer,
         {
             imgSrc: `https://mylearningposts-api.herokuapp.com/images/${theme}ThemeImage.jpg`,

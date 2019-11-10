@@ -1,23 +1,26 @@
-import React, {Fragment, useState} from 'react';
-
-import Biography from './about/Biography';
-import { SectionBtnNav, StyledSwipeableViews} from '../helpers/styled-components/containers';
-import {PrimaryButton} from '../helpers/styled-components/buttons';
-import Recommendations from './about/Recommendations';
+import React, {Fragment, useEffect, useState} from 'react';
 import { useMediaPredicate } from 'react-media-hook';
 
+import Biography from './about/Biography';
+import Recommendations from './about/Recommendations';
+import Portfolio from './about/Portfolio';
+
+import { SectionBtnNav, StyledSwipeableViews, AboutContainer, PostBody } from '../helpers/styled-components/containers';
+import { PrimaryButton } from '../helpers/styled-components/buttons';
 
 export default function About() {
-    const [shownItem, setShownItem] = useState('bio');
+    const [left, setLeft] = useState(+window.localStorage.getItem('about-slide-position') || 0);
     const noGreaterThan600 = useMediaPredicate('(max-width: 600px)');
 
+    useEffect(() => window.localStorage.setItem('about-slide-position',left),[left]);
+
     //for buttons
-	const showBio = () => setShownItem('bio');
-	const showPortf = () => setShownItem('portf');
-    const showRecs = () => setShownItem('recs');
+	const showBio = () => setLeft(0);
+	const showPortf = () => setLeft(1);
+    const showRecs = () => setLeft(2);
     
     //for swipeable
-    const changeShown = index => setShownItem(['bio',])
+    const shift = index => setLeft(index);
 
     return (
         <Fragment>
@@ -31,19 +34,27 @@ export default function About() {
                     </SectionBtnNav>
                 )
                 : (
-                        <StyledSwipeableViews enableMouseEvents onChangeIndex={changeShown}>
+                    <StyledSwipeableViews enableMouseEvents index={left} onChangeIndex={shift}>
                         <div>Biography</div>
                         <div>Portfolio</div>
                         <div>Recommendations</div>
                     </StyledSwipeableViews>
                 )
             }
-            {
+            {/* {
                 shownItem === 'bio' && <Biography/>
             }
             {
-                shownItem === 'recs' && <Recommendations/>
+                shownItem === 'portf' && <div>Portfolio</div>
             }
+            {
+                shownItem === 'recs' && <Recommendations/>
+            } */}
+            <AboutContainer left={left}>
+                <Biography/>
+                <Portfolio/>
+                <Recommendations/>
+            </AboutContainer>
         </Fragment>
     );
 }

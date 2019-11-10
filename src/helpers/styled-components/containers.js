@@ -4,6 +4,8 @@ import {boxShadow} from './mixins/content';
 import { TwitterTweetEmbed } from 'react-twitter-embed'; 
 import SwipeableViews from 'react-swipeable-views';
 
+const modalBackgroundColor = ({ theme: {theme} }) => theme === 'light' ? 'var(--color-neutral-200-alpha-8)' : 'var(--color-primary-500-alpha-8)';
+
 export const FlexContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -138,7 +140,7 @@ export const SlideInViewContainer = styled(CenteredContentWrapper)`
         text-decoration: underline;
         @media (max-width: 800px) {
             transition-delay: 0.2s;
-        }        
+        }
     }
 
     .tertiary {
@@ -151,7 +153,7 @@ export const SlideInViewContainer = styled(CenteredContentWrapper)`
     .reference {
         transition-delay: 1.2s;
         margin-top: 12px;
-        @media(max-width: 800px) {
+        @media (max-width: 800px) {
             display: none;
         }
     }
@@ -170,5 +172,31 @@ export const StyledSwipeableViews = styled(SwipeableViews)`
         text-align: center;
         font-size: var(--font-size-xxlarge);
         
+    }
+`;
+
+export const StyledModal = styled.div`
+    box-sizing: border-box;
+    padding: 48px;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: ${modalBackgroundColor};
+`;
+
+export const AboutContainer = styled.div`
+    width: calc(300vw);
+    transition: left 1s;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    left: ${({left})=>`-${left*101+1}vw`};
+    position: relative;
+
+    > div {
+        width: 100vw;
+        box-sizing: border-box;
     }
 `;

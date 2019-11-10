@@ -41,6 +41,6 @@ export const StyledAnchorBlock = styled(StyledAnchor)`
 
 export const StyledAbsoluteAnchor = styled(StyledAnchor)`
     position: absolute;
-    top: 1%;
-    right: 5%;
+    top: ${({top})=>top};
+    right: ${({right})=>right};
 `;

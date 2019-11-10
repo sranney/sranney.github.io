@@ -16,7 +16,19 @@ const GlobalStyles = createGlobalStyle`
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
-        overflow-x: hidden4;
+        overflow-x: hidden;
+    }
+    #react {
+        z-index: 10;
+    }
+    #background {
+        z-index: 0;
+    }
+    #modal {
+        z-index: 100;
+        top: 0;
+        left: 0;
+        position: fixed;
     }
     twitter-widget {
         margin-left: auto;

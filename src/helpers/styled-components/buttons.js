@@ -12,6 +12,7 @@ export const Button = styled.button`
     border-radius: 0;
     font-size: ${fontSize};
     width: ${blockWidth};
+    box-sizing: border-box;
     border: 2px solid transparent;
     margin: ${({block})=>block&&'8px 0'||'8px'};
     font-weight: bold;
@@ -63,13 +64,16 @@ export const DangerButton = styled(Button)`
     }
 `;
 
-export const ThemeButton = styled(PrimaryButton)`
+export const IconButton = styled(PrimaryButton)`
     position: relative;
 
     align-self: stretch;
 
+    color: ${fontColor};
+    font-size: var(--font-size-large);
+
     &:before {
-        content: ${({ theme: { theme } }) => theme === 'light' ? `'☀️'` : `'🌙'`};
+        content: ${({ icon }) => icon && `'${icon}'`};
         position: absolute;
         top: 50%;
         left: 50%;

@@ -6,7 +6,9 @@ export default function useLazyImgLoader (imgSrc, fallbackImgSrc) {
     useEffect(()=> {
         const image = new Image();
         image.src = imgSrc;
-        image.onload = () => setSrc(imgSrc);
+        image.onload = () => {
+            setSrc(imgSrc)
+        };
     }, [imgSrc]);
 
     return src;
