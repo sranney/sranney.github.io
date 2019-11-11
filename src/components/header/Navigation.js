@@ -31,7 +31,7 @@ export default function Navigation () {
                             <Link to='/about'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>About</PrimaryButton></Link>
                         </Fragment>
                         :
-                        <IconButton onClick={()=>setShowModal(true)}><IoIosMenu /></IconButton>
+                        <IconButton onClick={() => setShowModal(true)}><FaBars /></IconButton>
                 }
             </BtnNav>
             {!noLessThan700 && <MenuModal showModal={showModal} close={() => setShowModal(false)}/>}

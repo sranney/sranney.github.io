@@ -24,8 +24,7 @@ export default function RouterApp () {
             <Header />
             <DataContext.Provider value={fetchData}>                   
                 <Switch location={location}>
-                    {/*<Route exact path='/' render={props=><Blog id='0000'/>}/>*/}
-                    <Route exact path='/' component={About} />
+                    <Route exact path='/' render={props=><Blog id='0000'/>}/>
                     <Route path='/post/:id' render={({ match }) => <Blog id={match.params.id} />} />
                     <Route path='/postlist/:searchterm?' component={Search} />
                     <Route path='/about' component={About} />

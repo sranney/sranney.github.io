@@ -47,7 +47,7 @@ export default function MenuModal ({close, showModal}) {
                 color: 'var(--color-danger-800)', 
                 fontWeight: 'bold'
             }}}>
-                <AiOutlineClose onClick={() => close()}/>
+                <FaWindowClose onClick={() => close()}/>
             </IconContext.Provider>
             {navArr.map(({text,...linkprops},idx) => {
                 return (

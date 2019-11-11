@@ -11,7 +11,7 @@ export default function Portfolio() {
     return (
         <PostBody>
             <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
-            {/* <StyledAbsoluteAnchor right="5%" top="10%" size="xxlarge" href="https://github.com/sranney" target="_blank"><DiGithubAlt /></StyledAbsoluteAnchor> */}
+            <StyledAbsoluteAnchor right="5%" top="10%" size="xxlarge" href="https://github.com/sranney" target="_blank"><FaGithubAlt /></StyledAbsoluteAnchor>
             <Skills/>
         </PostBody>
     );

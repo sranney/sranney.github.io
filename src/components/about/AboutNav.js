@@ -15,7 +15,7 @@ export default function AboutNav({ slide, position, showBio, showPortf, showRecs
             </SectionBtnNav>
         )
         : (
-                <StyledSwipeableViews enableMouseEvents index={position} onChangeIndex={slide}>
+            <StyledSwipeableViews enableMouseEvents index={position} onChangeIndex={slide}>
                 <div>Biography</div>
                 <div>Portfolio</div>
                 <div>Recommendations</div>
