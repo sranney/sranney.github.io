@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import ReactDOM,{createPortal} from "react-dom";
 
 import {BackgroundImg1, BackgroundImg2} from './helpers/styled-components/images'
 
