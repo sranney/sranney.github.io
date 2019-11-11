@@ -1,10 +1,10 @@
-import styled, {keyframes} from "styled-components";
-import {Link} from "react-router-dom";
+import styled, {keyframes} from 'styled-components';
+import {Link} from 'react-router-dom';
 
 //mixins used in typography - sets the color of font and background colors depending on the theme
-import {fontColor,backgroundColor} from "./mixins/themeColor";
+import {fontColor,backgroundColor} from './mixins/themeColor';
 
-import {fontSize} from "./mixins/typography";
+import {fontSize} from './mixins/typography';
 
 //typography animations
 const typingEffect = keyframes`
@@ -68,6 +68,11 @@ export const PostPar = styled(Type)`
     font-size: var(--font-size-large);
     line-height: 1.5;
     text-decoration: ${({underline}) => underline && 'underline'};
+`;
+
+export const PostCaption = styled(Type)`
+    font-size: var(--font-size-base);
+    color: ${fontColor};
 `;
 
 export const StyledEm = styled.em`

@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import {animated} from 'react-spring';
 
-import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from "./mixins/themeColor";
-import {fontSize} from "./mixins/typography";
-import {blockWidth,boxShadow} from "./mixins/content";
+import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from './mixins/themeColor';
+import {fontSize} from './mixins/typography';
+import {blockWidth,boxShadow} from './mixins/content';
 
 const dangerFontColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-danger-800)' : 'var(--color-neutral-0)';
 const dangerBackgroundColor = ({ theme: { theme } }) => theme === 'light' ? 'var(--color-neutral-0)' : 'var(--color-danger-1000)';
@@ -12,8 +13,9 @@ export const Button = styled.button`
     border-radius: 0;
     font-size: ${fontSize};
     width: ${blockWidth};
+    box-sizing: border-box;
     border: 2px solid transparent;
-    margin: ${({block})=>block&&"8px 0"||"8px"};
+    margin: ${({block})=>block&&'8px 0'||'8px'};
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -49,6 +51,8 @@ export const PrimaryButton = styled(Button) `
     }
 `;
 
+export const AnimatedPrimaryButton = animated(PrimaryButton);
+
 export const DangerButton = styled(Button)`
     background-color: ${dangerBackgroundColor};
     color: ${dangerFontColor};
@@ -63,13 +67,16 @@ export const DangerButton = styled(Button)`
     }
 `;
 
-export const ThemeButton = styled(PrimaryButton)`
+export const IconButton = styled(PrimaryButton)`
     position: relative;
 
     align-self: stretch;
 
+    color: ${fontColor};
+    font-size: var(--font-size-large);
+
     &:before {
-        content: ${({ theme: { theme } }) => theme === 'light' ? `'☀️'` : `'🌙'`};
+        content: ${({ icon }) => icon && `'${icon}'`};
         position: absolute;
         top: 50%;
         left: 50%;

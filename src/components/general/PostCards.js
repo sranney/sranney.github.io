@@ -1,17 +1,17 @@
-import React from "react";
-import _ from "lodash";
+import React from 'react';
+import orderBy from 'lodash/orderBy';
 
-import PostCard from "./PostCard";
-import NoMatchOrError from "../general/NoMatchOrError";
+import PostCard from './PostCard';
+import NoMatchOrError from '../general/NoMatchOrError';
 
-import {FlexWrapper} from "../../helpers/styled-components/containers";
+import {FlexWrapper} from '../../helpers/styled-components/containers';
 
 export default function PostCards({blogList,id,linkDisplay}) {
     if (!blogList) {
-        return <NoMatchOrError msgType="no match" resType="posts" id={id} linkDisplay={linkDisplay}/>;
+        return <NoMatchOrError msgType='no match' resType='posts' id={id} linkDisplay={linkDisplay}/>;
     }
 
-    blogList = _.orderBy(blogList,(b)=>b.meta.dateSerial,['desc']);
+    blogList = orderBy(blogList,(b)=>b.meta.dateSerial,['desc']);
     
     return (
         <FlexWrapper>

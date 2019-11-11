@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from 'react';
 
 export default function useLazyImgLoader (imgSrc, fallbackImgSrc) {
     const [src, setSrc] = useState(fallbackImgSrc);
@@ -6,7 +6,9 @@ export default function useLazyImgLoader (imgSrc, fallbackImgSrc) {
     useEffect(()=> {
         const image = new Image();
         image.src = imgSrc;
-        image.onload = () => setSrc(imgSrc);
+        image.onload = () => {
+            setSrc(imgSrc)
+        };
     }, [imgSrc]);
 
     return src;

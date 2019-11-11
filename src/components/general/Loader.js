@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { CenteredContentWrapper, CenteredBlockContentWrapper } from "../../helpers/styled-components/containers";
+import { CenteredContentWrapper, CenteredBlockContentWrapper } from '../../helpers/styled-components/containers';
 import ScaleLoader from '@bit/davidhu2000.react-spinners.scale-loader';
 
 export default function Loader({wrapper, theme}) {

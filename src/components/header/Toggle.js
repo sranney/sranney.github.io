@@ -1,12 +1,12 @@
-import React, {useContext} from "react";
-import ReactToggle from "react-toggle";
+import React, {useContext} from 'react';
+import ReactToggle from 'react-toggle';
 
 //styled components - icons
-import {ToggleIcon, ToggleIconFalse} from "../../helpers/styled-components/icons";
-import {ThemeContext} from "styled-components";
+import {ToggleIcon, ToggleIconFalse} from '../../helpers/styled-components/icons';
+import {ThemeContext} from 'styled-components';
 
 //additional styles
-import "./Toggle.scss";
+import './Toggle.scss';
 
 export default function Toggle () {
     const {theme,toggleTheme} = useContext(ThemeContext);

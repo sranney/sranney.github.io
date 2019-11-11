@@ -1,8 +1,12 @@
-import styled from "styled-components";
-import {backgroundColor, borderColor} from "./mixins/themeColor";
-import {boxShadow} from "./mixins/content";
-import { TwitterTweetEmbed } from 'react-twitter-embed'; 
+import styled from 'styled-components';
+import { animated } from 'react-spring';
 
+import { backgroundColor, borderColor, fontColor, componentBackgroundColor} from './mixins/themeColor';
+import {boxShadow} from './mixins/content';
+import { TwitterTweetEmbed } from 'react-twitter-embed'; 
+import SwipeableViews from 'react-swipeable-views';
+
+const modalBackgroundColor = ({ theme: {theme} }) => theme === 'light' ? 'var(--color-neutral-200-alpha-8)' : 'var(--color-primary-500-alpha-8)';
 
 export const FlexContainer = styled.div`
     display: flex;
@@ -44,9 +48,14 @@ export const HeaderContainer = styled(FlexContainer)`
 `;
 
 export const BtnNav = styled(FlexContainer)`
+    max-width: 800px;
     @media (max-width: 480px) {
         justify-content: center;
     }
+`;
+
+export const SectionBtnNav = styled(BtnNav)`
+    margin: 32px auto;
 `;
 
 const PostGeneral = styled.div`
@@ -58,6 +67,7 @@ const PostGeneral = styled.div`
 `;
 
 export const PostBody = styled(PostGeneral)`
+    position: relative;
     @media(max-width: 800px) {
         margin-left: 0;
         margin-right: 0;
@@ -90,4 +100,106 @@ export const PostSearch = styled(PostBody)`
 export const TwitterQuote = styled(TwitterTweetEmbed)`
     margin-left: auto;
     margin-right: auto;
+`;
+
+export const SlideInViewContainer = styled(CenteredContentWrapper)`
+    min-height: 100px;
+    display: flex;
+    margin-top: 24px;
+
+    @media (max-width: 800px) {
+        display: block;
+    }
+
+    div {
+        position: relative;
+        width: 50%;
+        @media (max-width: 800px) {
+            width: 100%;
+        }
+    }
+
+    span {
+        position: relative;
+        display: block;
+        opacity: ${({inview}) => inview ? '1' : '0'};
+        left: ${({inview}) => inview ? '0%' : '10%'};
+        transition: left 0.3s, opacity 0.5s;
+        text-align: left;
+        color: ${fontColor};
+    }
+
+    .primary {
+        transition-delay: 0.3s;
+        font-size: var(--font-size-xxlarge);
+        @media (max-width: 800px) {
+            transition-delay: 0.1s;
+        }
+    }
+    
+    .secondary {
+        transition-delay: 0.6s;
+        text-decoration: underline;
+        @media (max-width: 800px) {
+            transition-delay: 0.2s;
+        }
+    }
+
+    .tertiary {
+        transition-delay: 0.9s;
+        @media (max-width: 800px) {
+            transition-delay: 0.3s;
+        }
+    }
+
+    .reference {
+        transition-delay: 1.2s;
+        margin-top: 12px;
+        @media (max-width: 800px) {
+            display: none;
+        }
+    }
+`;
+
+export const StyledSwipeableViews = styled(SwipeableViews)`
+    margin: 40px auto;
+    height: 40px;
+    width: 100%;
+    border-top: 3px solid ${borderColor};
+    border-bottom: 3px solid ${borderColor};
+    div {
+        height: 40px;
+        background-color: ${componentBackgroundColor};
+        color: ${fontColor};
+        text-align: center;
+        font-size: var(--font-size-xxlarge);
+        
+    }
+`;
+
+export const StyledModal = animated(styled.div`
+    box-sizing: border-box;
+    padding: 48px;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    background-color: ${modalBackgroundColor};
+`);
+
+export const AboutContainer = styled.div`
+    width: calc(300vw);
+    transition: left 1s;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    left: ${({left})=>`-${left*101+1}vw`};
+    position: relative;
+
+    > div {
+        width: 100vw;
+        box-sizing: border-box;
+    }
 `;

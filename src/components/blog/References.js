@@ -1,6 +1,6 @@
-import React, {Fragment} from "react";
-import { PostSectionHeader } from "../../helpers/styled-components/typography";
-import { StyledAnchorBlock } from "../../helpers/styled-components/links";
+import React, {Fragment} from 'react';
+import { PostSectionHeader } from '../../helpers/styled-components/typography';
+import { StyledAnchorBlock } from '../../helpers/styled-components/links';
 
 export default function References ({references}) {
     return (

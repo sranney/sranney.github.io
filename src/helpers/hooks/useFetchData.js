@@ -1,8 +1,8 @@
-import {useReducer, useEffect} from "react";
+import {useReducer, useEffect} from 'react';
 
-const SET_SUCCESS = "SET_BLOG";
-const SET_ERROR = "SET_ERROR";
-const IS_LOADING = "IS_LOADING";
+const SET_SUCCESS = 'SET_BLOG';
+const SET_ERROR = 'SET_ERROR';
+const IS_LOADING = 'IS_LOADING';
 
 const fetchReducer = ( state = {}, {type, data} = {} ) => {
     switch (type) {
@@ -30,7 +30,7 @@ export default function useFetchData () {
     useEffect(() => {
         dispatch({type: IS_LOADING});
 
-        fetch("https://mylearningposts-api.herokuapp.com/blogList")
+        fetch('https://mylearningposts-api.herokuapp.com/blogList')
             .then(res => res.json())
             .then(res => dispatch({type: SET_SUCCESS, data: res}))
             .catch(err => dispatch({type: SET_ERROR, data: err}));

@@ -1,6 +1,6 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect} from 'react';
 
-export default function useSearchFilter(blogs=[], searchValue="") {
+export default function useSearchFilter(blogs=[], searchValue='') {
     const [filteredBlogs, setFilteredBlogs] = useState([]);
 
     useEffect(() => {
