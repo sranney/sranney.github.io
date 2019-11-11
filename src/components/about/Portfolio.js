@@ -1,5 +1,5 @@
 import React from 'react';
-import { DiGithubAlt } from 'react-icons/di';
+import { FaGithubAlt } from 'react-icons/fa';
 
 import {PostBody} from '../../helpers/styled-components/containers';
 import {PostTitle} from '../../helpers/styled-components/typography';
@@ -11,7 +11,7 @@ export default function Portfolio() {
     return (
         <PostBody>
             <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
-            <StyledAbsoluteAnchor right="5%" top="10%" size="xxlarge" href="https://github.com/sranney" target="_blank"><DiGithubAlt /></StyledAbsoluteAnchor>
+            {/* <StyledAbsoluteAnchor right="5%" top="10%" size="xxlarge" href="https://github.com/sranney" target="_blank"><DiGithubAlt /></StyledAbsoluteAnchor> */}
             <Skills/>
         </PostBody>
     );

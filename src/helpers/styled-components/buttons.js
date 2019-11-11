@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {animated} from 'react-spring';
 
 import { fontColor, borderColor, componentBackgroundColor as backgroundColor} from './mixins/themeColor';
 import {fontSize} from './mixins/typography';
@@ -49,6 +50,8 @@ export const PrimaryButton = styled(Button) `
         background-color: ${backgroundColor};
     }
 `;
+
+export const AnimatedPrimaryButton = animated(PrimaryButton);
 
 export const DangerButton = styled(Button)`
     background-color: ${dangerBackgroundColor};

@@ -2,8 +2,7 @@ import React, {useContext} from 'react';
 
 import {ThemeContext} from 'styled-components';
 
-import {IconContext} from 'react-icons';
-import * as SkillIcons from 'react-icons/di';
+// import {IconContext} from 'react-icons';
 
 const skillArr = [
     {
@@ -69,14 +68,14 @@ export default function Skills () {
     const themeColor = theme === 'dark' ? 'var(--color-neutral-0)' : 'var(--color-primary-800)';
     return (
         <div>
-            <IconContext.Provider value={{ size: '4em', color: themeColor}}>
+            {/* <IconContext.Provider value={{ size: '4em', color: themeColor}}>
                 {
                     skillArr.map(({key,icon}) => {
                         const IconComponent = SkillIcons[icon];
                         return <IconComponent key={key}/>;
                     })
                 }
-            </IconContext.Provider>
+            </IconContext.Provider> */}
         </div>
     );
 }

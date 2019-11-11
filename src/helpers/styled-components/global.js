@@ -23,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
     }
     #background {
         z-index: 0;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
     }
     #modal {
         z-index: 100;

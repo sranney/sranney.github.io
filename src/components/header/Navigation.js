@@ -1,6 +1,6 @@
 import React, {Fragment, useContext, useState} from 'react';
 import { useMediaPredicate } from 'react-media-hook';
-import { IoIosMenu } from 'react-icons/io';
+import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
 
@@ -34,7 +34,7 @@ export default function Navigation () {
                         <IconButton onClick={()=>setShowModal(true)}><IoIosMenu /></IconButton>
                 }
             </BtnNav>
-            {showModal && !noLessThan700 && <MenuModal close={setShowModal}/>}
+            {!noLessThan700 && <MenuModal showModal={showModal} close={() => setShowModal(false)}/>}
         </Fragment>
     );
 }

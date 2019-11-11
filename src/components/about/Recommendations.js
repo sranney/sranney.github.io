@@ -1,5 +1,5 @@
-import React, {Fragment} from "react";
-import { FaLinkedinIn } from "react-icons/fa";
+import React, {Fragment} from 'react';
+// import { FaLinkedinIn } from 'react-icons/fa';
 import { useMediaPredicate } from 'react-media-hook';
 
 import { PostBody } from "../../helpers/styled-components/containers";
@@ -131,14 +131,14 @@ export default function Recommendations() {
             <PostTitle>📢 Recommendations 📢</PostTitle>
             <PostPar>I have had the good fortune of forming some really great work relationships in my career
                 . I feel blessed to have these people in my life. Here's what some of them have to say about me. </PostPar>
-            <StyledAbsoluteAnchor right='5%' top='1%' size="xlarge" href="https://www.linkedin.com/in/spencer-ranney/" target="_blank"><FaLinkedinIn /></StyledAbsoluteAnchor>
+            {/* <StyledAbsoluteAnchor right='5%' top='1%' size="xlarge" href="https://www.linkedin.com/in/spencer-ranney/" target="_blank"><FaLinkedinIn /></StyledAbsoluteAnchor> */}
             {
                 recommendationsArr.map(({key, author, role, words, linkedin}) => {
                     return (
                         <SlideInViewContainer key={key}> 
                             <div className='feature'>
                                 <span className='primary'>{author}</span><span className='secondary'>{role}</span>
-                                <span className="reference"><StyledAnchor size="large" href={linkedin} target="_blank"><FaLinkedinIn /></StyledAnchor></span>
+                                {/* <span className="reference"><StyledAnchor size="large" href={linkedin} target="_blank"><FaLinkedinIn /></StyledAnchor></span> */}
                             </div>
                             <div className='content'><span className='tertiary'>{words}</span></div>
                         </SlideInViewContainer>

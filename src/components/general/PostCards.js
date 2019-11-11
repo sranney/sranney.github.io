@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import orderBy from 'lodash/orderBy';
 
 import PostCard from './PostCard';
 import NoMatchOrError from '../general/NoMatchOrError';
@@ -11,7 +11,7 @@ export default function PostCards({blogList,id,linkDisplay}) {
         return <NoMatchOrError msgType='no match' resType='posts' id={id} linkDisplay={linkDisplay}/>;
     }
 
-    blogList = _.orderBy(blogList,(b)=>b.meta.dateSerial,['desc']);
+    blogList = orderBy(blogList,(b)=>b.meta.dateSerial,['desc']);
     
     return (
         <FlexWrapper>

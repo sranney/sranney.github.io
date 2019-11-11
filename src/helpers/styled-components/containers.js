@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
+
 import { backgroundColor, borderColor, fontColor, componentBackgroundColor} from './mixins/themeColor';
 import {boxShadow} from './mixins/content';
 import { TwitterTweetEmbed } from 'react-twitter-embed'; 
@@ -175,16 +177,17 @@ export const StyledSwipeableViews = styled(SwipeableViews)`
     }
 `;
 
-export const StyledModal = styled.div`
+export const StyledModal = animated(styled.div`
     box-sizing: border-box;
     padding: 48px;
     position: fixed;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
     top: 0;
     left: 0;
     background-color: ${modalBackgroundColor};
-`;
+`);
 
 export const AboutContainer = styled.div`
     width: calc(300vw);
