@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-import { backgroundColor, borderColor, fontColor, componentBackgroundColor} from './mixins/themeColor';
+import { backgroundColor, borderColor, fontColor, componentBackgroundColor, overlayBackgroundColor} from './mixins/themeColor';
 import {boxShadow} from './mixins/content';
 import { TwitterTweetEmbed } from 'react-twitter-embed'; 
 import SwipeableViews from 'react-swipeable-views';
-
-const modalBackgroundColor = ({ theme: {theme} }) => theme === 'light' ? 'var(--color-neutral-200-alpha-8)' : 'var(--color-primary-500-alpha-8)';
 
 export const FlexContainer = styled.div`
     display: flex;
@@ -186,7 +184,7 @@ export const StyledModal = animated(styled.div`
     overflow-x: hidden;
     top: 0;
     left: 0;
-    background-color: ${modalBackgroundColor};
+    background-color: ${overlayBackgroundColor};
 `);
 
 export const AboutContainer = styled.div`

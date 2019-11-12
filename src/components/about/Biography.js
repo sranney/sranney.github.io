@@ -16,7 +16,7 @@ export default function Biography() {
 					While I believe my posts here will speak clearly about who I am as an engineer and what my philosophy of engineering is, there's a lot more to who I am than that. So let me tell you a little bit about who I am, and where I got started.
 				</PostPar>
 				<PostSectionHeader>
-					A "Little" About Me as an Engineer (and a Little More Engineering Principals)
+					A "Little" About Me as an Engineer (and a Little Engineering Philosophy)
 				</PostSectionHeader>
 				<PostPar>
 					I am a forward-looking and passionate engineer focused on the pillars of my craft. It seems that the more I learn about engineering, the more excited I am about it... and the more I want to learn. I view testing as a vehicle for quality and confidence. Writing good tests make you think at a higher level than your implementation, and thus more at the heart of what you actually should be caring about which is the end-user's interactions with your software. Testing makes you a better engineer. I ask questions about the tools that I use so that I may best use them. Without understanding the problems that the creators of the tool were trying to address and why a tool exists, your engineering solutions will be constrained by the tools that were intended to enhance your development experience. I look to learn from thought leaders in my field. My excitement for technology, and for sharing what I know have led me to becoming a teacher in my communities. The craft of engineering pushes me towards becoming the best engineer I can be. 🚀🚀🚀

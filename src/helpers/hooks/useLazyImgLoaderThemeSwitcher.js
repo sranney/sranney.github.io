@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer} from 'react';
+import { useContext, useEffect, useReducer} from 'react';
 
 import {ThemeContext} from 'styled-components';
 import useLazyImgLoader from './useLazyImgLoader';

@@ -1,8 +1,9 @@
 import styled, {keyframes} from 'styled-components';
 import {Link} from 'react-router-dom';
+import {animated} from 'react-spring';
 
 //mixins used in typography - sets the color of font and background colors depending on the theme
-import {fontColor,backgroundColor} from './mixins/themeColor';
+import { fontColor, backgroundColor, overlayBackgroundColor} from './mixins/themeColor';
 
 import {fontSize} from './mixins/typography';
 
@@ -53,6 +54,9 @@ export const PostTitle = styled(Type)`
     font-size: var(--font-size-xxlarge);
     text-align: center;
     text-decoration: underline;
+    @media(max-width: 700px) {
+        font-size: var(--font-size-xlarge);
+    }
 `;
 
 export const PostSectionHeader = styled(Type)`
@@ -78,3 +82,16 @@ export const PostCaption = styled(Type)`
 export const StyledEm = styled.em`
     color: ${fontColor};
 `;
+
+export const AnimatedPopup = animated(styled.span`
+    display: block;
+    position: ${({mediaQ}) => mediaQ ? 'relative' : 'absolute'};
+    padding: 25px;
+    right: ${({ mediaQ }) => !mediaQ && '0%'};
+    top: ${({ mediaQ }) => !mediaQ && '-50%'};
+    pointer-events: none;
+    z-index: ${({ mediaQ }) => !mediaQ && '15'};
+    max-width: ${({ mediaQ }) => !mediaQ && '300px'};
+    background-color: ${overlayBackgroundColor};
+    color: ${fontColor};
+`);

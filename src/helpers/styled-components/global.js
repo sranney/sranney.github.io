@@ -19,10 +19,13 @@ const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
     #react {
-        z-index: 10;
+        z-index: 50;
+        height: 100vh;
     }
     #background {
-        z-index: 0;
+        z-index: -1;
+        top: 0;
+        left: 0;
         position: fixed;
         height: 100vh;
         width: 100vw;

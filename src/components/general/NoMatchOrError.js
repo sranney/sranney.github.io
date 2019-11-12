@@ -1,16 +1,18 @@
 import React, {Fragment} from 'react';
-import {Link} from 'react-router-dom';
+
+import {PostBody} from '../../helpers/styled-components/containers';
+import { PostPar, PostTitle } from '../../helpers/styled-components/typography';
 
 export default function NoMatch ({msgType, resType, id, linkDisplay=true}) {
     return (
-        <Fragment>
+        <PostBody>
+            <PostTitle>🙈🙉🙊</PostTitle>
             {
                 msgType === 'no match' ?
-                    <p>There were no matches for {resType} with {resType === 'blog' ? 'id' : 'search term'}: {id}</p>
+                    <PostPar>There were no matches for {resType} with {resType === 'blog' ? 'id' : 'search term'}: {id}</PostPar>
                 :
-                    <p>Error retrieving your requested data: {resType} with {resType === 'blog' ? 'id' : 'search term'}: {id}</p>
+                    <PostPar>Error retrieving your requested data: {resType} with {resType === 'blog' ? 'id' : 'search term'}: {id}</PostPar>
             }
-            {linkDisplay && <Link className='link' to='/postlist'>Click here to return to all posts</Link>}
-        </Fragment>
+        </PostBody>
     )
 }

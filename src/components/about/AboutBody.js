@@ -41,13 +41,3 @@ export default function AboutBody({position, direction}) {
         </div>
     );
 };
-
-/* <ReactCSSTransitionGroup
-    transitionName='slide'
-    transitionEnterTimeout={500}
-    transitionLeaveTimeout={300}
->
-    {left === 0 && <Biography key={0} direction={direction} />}
-    {left === 1 && <Portfolio key={1} direction={direction} />}
-    {left === 2 && <Recommendations key={2} direction={direction} />}
-</ReactCSSTransitionGroup> */
