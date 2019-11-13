@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import Tree from 'react-animated-tree';
 
 import { backgroundColor, borderColor, fontColor, componentBackgroundColor, overlayBackgroundColor} from './mixins/themeColor';
 import {fontSize} from './mixins/typography';
@@ -212,7 +213,21 @@ export const ExpandableHeader = styled(Expandable)`
     position: relative;
 `;
 
+export const ExpandableSectionHeader = styled(ExpandableHeader)`
+    font-size: var(--font-size-xlarge);
+    border-top: 2px solid ${fontColor};
+`;
+
+export const ExpandableProjectHeader = styled(ExpandableHeader)`
+    font-size: var(--font-size-xxlarge);
+    font-style: italic;
+`;
+
 export const ExpandableBody = animated(styled(Expandable)`
     overflow-y: hidden;
     background-color: ${overlayBackgroundColor};    
+`);
+
+export const ExpandableParentBody = animated(styled(ExpandableBody)`
+    background-color: transparent;
 `);

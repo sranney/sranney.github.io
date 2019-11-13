@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { useSpring, useTransition, animated } from 'react-spring';
 import Biography from './Biography';
 import Recommendations from './Recommendations';
