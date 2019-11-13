@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
-import { useSpring, useTransition } from 'react-spring';
-import { IconContext } from 'react-icons';
-import { ExpandableHeader, ExpandableBody} from '../../helpers/styled-components/containers';
+import React, {useState, useContext} from 'react';
+import { useSpring } from 'react-spring';
+
 import AnimatedExpandIcon from './AnimatedExpandIcon';
 
-export default function ExpandableCard({content="", subcontent="", mediaQ=false}) {
+import { ExpandableHeader, ExpandableBody} from '../../helpers/styled-components/containers';
+import {DataContext} from '../../helpers/context/contexts';
+
+export default function ExpandableCard({content="", subcontent=""}) {
+    const { noGreaterThan450: mediaQ } = useContext(DataContext);
     const [open, setOpen] = useState(false);
     const expandableAnimation = useSpring({ 
         opacity: open ? 1 : 0,
@@ -12,16 +15,11 @@ export default function ExpandableCard({content="", subcontent="", mediaQ=false}
         transform: open ? 'scale(1)' : 'scale(0)',
         padding: open ? '32px' : '8px'
     });
-    const transition = useTransition(open, null,{
-        from: {position: 'absolute', opacity: 0, top: 0, right: 0},
-        enter: {opacity: 1},
-        leave: { opacity: 0}
-    });
 
     return (
         <div>
             <ExpandableHeader 
-                size={mediaQ ? 'base' : 'large'}
+                size={mediaQ ? 'small' : 'base'}
                 onClick={()=>setOpen(o=>!o)}
             >
                 {content}

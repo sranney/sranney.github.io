@@ -3,8 +3,9 @@ import { FaGithubAlt } from 'react-icons/fa';
 import {useMediaPredicate} from 'react-media-hook';
 import {PostBody} from '../../helpers/styled-components/containers';
 import {PostTitle, PostPar} from '../../helpers/styled-components/typography';
-import { StyledAbsoluteAnchor, StyledAnchor, StyledLink } from '../../helpers/styled-components/links';
+import { StyledAbsoluteAnchor } from '../../helpers/styled-components/links';
 import ExpandableProject from '../general/ExpandableProject';
+import {DataContext} from '../../helpers/context/contexts';
 
 const currTech = [
     {
@@ -191,11 +192,13 @@ const currTech = [
 export default function Portfolio() {
     const noGreaterThan450 = useMediaPredicate('(max-width: 450px)');
     return (
-        <PostBody>
-            <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
-            <StyledAbsoluteAnchor right='5%' top='3%' size='xxlarge' href='https://github.com/sranney' target='_blank'><FaGithubAlt /></StyledAbsoluteAnchor>
-            <PostPar>Tap, tap, tap projects, categories and technology names to see a little bit about why I chose to use something, or what I used it in!</PostPar>
-            {currTech.map(allContent => <ExpandableProject {...allContent}/>)}
-        </PostBody>
+        <DataContext.Provider value={noGreaterThan450}>
+            <PostBody>
+                <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
+                <StyledAbsoluteAnchor right='35px' top='25px' size='xxlarge' href='https://github.com/sranney' target='_blank'><FaGithubAlt /></StyledAbsoluteAnchor>
+                <PostPar>Tap, tap, tap projects, categories and technology names to see a little bit about why I chose to use something, or what I used it in!</PostPar>
+                {currTech.map(allContent => <ExpandableProject {...allContent}/>)}
+            </PostBody>
+        </DataContext.Provider>
     );
 };

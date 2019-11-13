@@ -214,12 +214,10 @@ export const ExpandableHeader = styled(Expandable)`
 `;
 
 export const ExpandableSectionHeader = styled(ExpandableHeader)`
-    font-size: var(--font-size-xlarge);
     border-top: 2px solid ${fontColor};
 `;
 
 export const ExpandableProjectHeader = styled(ExpandableHeader)`
-    font-size: var(--font-size-xxlarge);
     font-style: italic;
 `;
 
