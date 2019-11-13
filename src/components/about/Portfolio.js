@@ -4,7 +4,7 @@ import {useMediaPredicate} from 'react-media-hook';
 import {PostBody} from '../../helpers/styled-components/containers';
 import {PostTitle, PostPar, PostSectionHeader} from '../../helpers/styled-components/typography';
 import { StyledAbsoluteAnchor, StyledAnchor, StyledLink } from '../../helpers/styled-components/links';
-import ContainerWithAnimPopup from '../general/ContainerWithAnimPopup';
+import ExpandableCard from '../general/ExpandableCard';
 
 const currTech = [
     {
@@ -28,8 +28,8 @@ const currTech = [
         key: 'catg-ui'
     },
     {
-        content: 'React using Hooks APIs and Context API 😍',
-        subcontent: 'I love Hooks and Context. Just functions, so composable - non-visual logic can now be shared easily across different components! Shifts the thinking about React from lifecycles to syncronization of the UI with state. Context API makes it so that you can more easily colocate state with UI. And with useContext hook, now we also don\'t have the issue of wrapper hell. So optimized, more declarative which is easier to understand, and component tree is less cluttered',
+        content: 'React 😍',
+        subcontent: 'Hooks, portals and context, oh my! 🦁 I love Hooks and Context and I\'m using both throughout here. Just functions, so composable - non-visual logic can now be shared easily across different components! Shifts the thinking about React from lifecycles to syncronization of the UI with state. Context API makes it so that you can more easily colocate state with UI. And with useContext hook and custom hooks, now we also don\'t have the issue of wrapper hell. So optimized, more declarative which is easier to understand, and component tree is less cluttered. It\'s no wonder to me that a lot of people are releasing new hooks seemingly every day. Great way to keep up with all of that is the site usehooks.com',
         key: 'react',
         type: 'tech'
     },
@@ -41,7 +41,7 @@ const currTech = [
     },
     {
         content: 'React Router',
-        subcontent: 'Classic React stuff here, but reliable and does exactly what I need it to do',
+        subcontent: 'Classic React client-side routing stuff here, but reliable and does exactly what I need it to do',
         key: 'router',
         type: 'tech'
     },
@@ -77,7 +77,7 @@ const currTech = [
     },
     {
         content: 'Bit',
-        subcontent: 'A great site that allows you to share and reuse other people\'s components. Only the loader that is used while assets are loading is from Bit. Look at the package.json and you\'ll see that is the only instance of a component from bit. Again, I could have built this one out by myself, but I already built out so much other stuff on this site by myself. I might port this over to a React Spring loader. We\'ll see',
+        subcontent: 'A great site that allows you to share and reuse other people\'s components. Only the loader that is used while assets are loading is from Bit. Look at the package.json and you\'ll see that is the only instance of a component from bit. Again, I could have built this one out by myself, but I already built out so much other stuff on this site by myself. I might port this over to a React Spring loader',
         key: 'bit',
         type: 'tech'
     },
@@ -180,22 +180,22 @@ export default function Portfolio() {
         <PostBody>
             <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
             <StyledAbsoluteAnchor right='5%' top='3%' size='xxlarge' href='https://github.com/sranney' target='_blank'><FaGithubAlt /></StyledAbsoluteAnchor>
-            <PostPar>Tap/Hover over technologies to see a little bit about why I chose to use something, or what I used it in!</PostPar>
+            <PostPar>Tap, tap, tap technology names to see a little bit about why I chose to use something, or what I used it in!</PostPar>
             {
-                currTech.map(({content, subcontent, contenthref, key, type})=> {
-                    
+                currTech.map(({ content, subcontent, contenthref, key, type }) => {
+
                     if (type === 'tech') {
-                        return <ContainerWithAnimPopup mediaQ={noGreaterThan450px} content={content} subcontent={subcontent} key={key}/>;
+                        return <ExpandableCard mediaQ={noGreaterThan450px} content={content} subcontent={subcontent} key={key} />;
                     } else if (type === 'category') {
                         return <PostSectionHeader key={key}>{content}</PostSectionHeader>
                     } else if (type === 'project') {
-                        if(content === 'spencerranney.com') {
-                            return <><StyledLink key={key} to='/' size='xlarge'>{content}</StyledLink><br/></>;
+                        if (content === 'spencerranney.com') {
+                            return <><StyledLink key={key} to='/' size='xlarge'>{content}</StyledLink><br /></>;
                         } else {
                             return <><StyledAnchor key={key} href={contenthref} size='xlarge'>{content}</StyledAnchor> <br /></>;
                         }
                     } else if (type === 'source-code') {
-                        return <StyledAnchor key={key} size='xlarge' style={{paddingRight: '8px'}} href={content}>(github)</StyledAnchor>;
+                        return <StyledAnchor key={key} size='xlarge' style={{ paddingRight: '8px' }} href={content}>(github)</StyledAnchor>;
                     } else if (type === 'description') {
                         return <PostPar key={key}>{content}</PostPar>;
                     }

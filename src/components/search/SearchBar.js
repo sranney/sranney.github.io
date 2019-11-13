@@ -4,7 +4,7 @@ import {DangerButton} from '../../helpers/styled-components/buttons';
 import {PostSearch} from '../../helpers/styled-components/containers';
 import { SearchInput } from '../../helpers/styled-components/inputs';
 
-export default function SearchBar ({onChange, reset, value}) {
+export default function SearchBar ({onChange=()=>{}, reset=()=>{}, value=""}) {
     return (
         <PostSearch>
             <SearchInput onChange={onChange} value={value} placeholder='Type To Search Posts'/>

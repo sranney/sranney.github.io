@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 import { backgroundColor, borderColor, fontColor, componentBackgroundColor, overlayBackgroundColor} from './mixins/themeColor';
+import {fontSize} from './mixins/typography';
 import {boxShadow} from './mixins/content';
 import { TwitterTweetEmbed } from 'react-twitter-embed'; 
 import SwipeableViews from 'react-swipeable-views';
@@ -201,3 +202,17 @@ export const AboutContainer = styled.div`
         box-sizing: border-box;
     }
 `;
+
+const Expandable = styled.div`
+    color: ${fontColor};
+`;
+
+export const ExpandableHeader = styled(Expandable)`
+    font-size: ${fontSize};
+    position: relative;
+`;
+
+export const ExpandableBody = animated(styled(Expandable)`
+    overflow-y: hidden;
+    background-color: ${overlayBackgroundColor};    
+`);

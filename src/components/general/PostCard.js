@@ -6,7 +6,7 @@ import { StyledLinkBlock } from '../../helpers/styled-components/links';
 import {PostCard as PostCardContainer} from '../../helpers/styled-components/containers';
 import { useMediaPredicate } from 'react-media-hook';
 
-export default function PostCard({title,meta,blogKey}) {
+export default function PostCard({title="",meta={},blogKey=""}) {
     const noGreaterThan700 = useMediaPredicate('(max-width: 700px)');
     return (
         <PostCardContainer>

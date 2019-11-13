@@ -10,7 +10,7 @@ import {ThemeContext} from 'styled-components';
 
 import {DataContext} from '../helpers/context/contexts';
 
-export default function Blog({id}) {
+export default function Blog({id=""}) {
     const [blogs, isLoaded, error] = useContext(DataContext);
     const {theme} = useContext(ThemeContext);
     const [{body,references}, setBlog] = useState({body: [],references: []});

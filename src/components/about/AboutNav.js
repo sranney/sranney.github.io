@@ -3,7 +3,7 @@ import {useMediaPredicate} from 'react-media-hook';
 import { SectionBtnNav, StyledSwipeableViews } from '../../helpers/styled-components/containers';
 import { PrimaryButton } from '../../helpers/styled-components/buttons';
 
-export default function AboutNav({ slide, position, showBio, showPortf, showRecs }) {
+export default function AboutNav({ slide = () => { }, position = 0, showBio = () => { }, showPortf = () => { }, showRecs = () => { } }) {
     const noGreaterThan600 = useMediaPredicate('(max-width: 600px)');
     return (
         !noGreaterThan600 //want to change view based on what the 

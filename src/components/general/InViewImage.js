@@ -5,7 +5,7 @@ import {StyledImage} from '../../helpers/styled-components/images';
 import {PostCaption} from '../../helpers/styled-components/typography';
 import useImageIntersectionObserver from '../../helpers/hooks/useImageIntersectionObserver';
 
-export default function InViewImage ({imgSrc,loader,slideLeft,slideRight,caption}) {
+export default function InViewImage ({imgSrc="",loader=false,caption=""}) {
     const [ref, src, isLoading] = useImageIntersectionObserver(imgSrc);
     const {theme} = useContext(ThemeContext);
 

@@ -5,7 +5,7 @@ import InViewImage from '../general/InViewImage';
 import { FlexContainer, TwitterQuote } from '../../helpers/styled-components/containers';
 import { PostPar, PostTitle, PostSectionHeader } from '../../helpers/styled-components/typography';
 
-export default function BlogBody({body}) {
+export default function BlogBody({body=[]}) {
     return body.map(({ type, content, underline, fallbackContent, key }) => {
         switch (type) {
             case 'par':

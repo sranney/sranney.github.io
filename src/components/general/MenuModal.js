@@ -29,7 +29,7 @@ const navArr = [
     }
 ]; 
 
-export default function MenuModal ({close, showModal}) {
+export default function MenuModal ({close=()=>{}, showModal=false}) {
     const modalAnim = useSpring({
         transform: showModal ? 'translate3d(0,0,0) scale(1)' : 'translate3d(0,100%,0) scale(0.7)'
     });

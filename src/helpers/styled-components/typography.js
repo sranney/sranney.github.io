@@ -82,16 +82,3 @@ export const PostCaption = styled(Type)`
 export const StyledEm = styled.em`
     color: ${fontColor};
 `;
-
-export const AnimatedPopup = animated(styled.span`
-    display: block;
-    position: ${({mediaQ}) => mediaQ ? 'relative' : 'absolute'};
-    padding: 25px;
-    right: ${({ mediaQ }) => !mediaQ && '0%'};
-    top: ${({ mediaQ }) => !mediaQ && '-50%'};
-    pointer-events: none;
-    z-index: ${({ mediaQ }) => !mediaQ && '15'};
-    max-width: ${({ mediaQ }) => !mediaQ && '300px'};
-    background-color: ${overlayBackgroundColor};
-    color: ${fontColor};
-`);

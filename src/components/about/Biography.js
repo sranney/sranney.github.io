@@ -8,7 +8,7 @@ export default function Biography() {
 	return (
 		<div>
 			<PostBody>
-				<PostTitle>👋 Hello, I'm Spencer 👋</PostTitle>
+				<PostTitle>An engineer striving to be a craftsman</PostTitle>
 				<CenteredContentWrapper>
 					<InViewImage loader caption="You can trust me! I'm wearing a bow-tie!" imgSrc='http://mylearningposts-api.herokuapp.com/images/me-in-tux.jpg'/>
 				</CenteredContentWrapper>

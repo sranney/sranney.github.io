@@ -5,7 +5,7 @@ import Biography from './Biography';
 import Recommendations from './Recommendations';
 import Portfolio from './Portfolio';
 
-export default function AboutBody({position, direction}) {
+export default function AboutBody({position=0, direction='left'}) {
     const determineComponent = (position) => {
         if (position === 0) {
             return [{

@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import {PostBody} from '../../helpers/styled-components/containers';
 import { PostPar, PostTitle } from '../../helpers/styled-components/typography';
 
-export default function NoMatch ({msgType, resType, id, linkDisplay=true}) {
+export default function NoMatch ({msgType="", resType="", id="", linkDisplay=true}) {
     return (
         <PostBody>
             <PostTitle>🙈🙉🙊</PostTitle>

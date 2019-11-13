@@ -9,7 +9,7 @@ import {DataContext} from '../helpers/context/contexts';
 import {ThemeContext} from 'styled-components';
 import useSearchFilter from '../helpers/hooks/useSearchFilter';
 
-export default function Search ({match: {params: {searchterm}}}) {
+export default function Search ({match: {params: {searchterm=""}}}) {
     const [blogs, isLoaded, error] = useContext(DataContext);
     const {theme} = useContext(ThemeContext);
     const [searchValue, setSearchValue] = useState('');
