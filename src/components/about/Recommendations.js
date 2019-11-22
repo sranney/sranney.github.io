@@ -24,12 +24,19 @@ const recommendationsArr = [
         words: "Spencer has worked in the same group as me, thought not reporting to me, for 20 months. From day one I have been impressed with him and glad we hired him as a UI Engineer. Immediately, he was seeking ways to help collaboratively improve the level of engineering in the department by leading seminars and getting involved, even leading, groups that centered around developing a vibrant engineering culture within Dealer.com's Dallas offices. His work by all accounts is predictably and consistently excellent, and he is clearly a team player."
     },
     {
-        key: 8,
+        key: 8, 
         author: 'Aaron Hancock',
         linkedin: 'https://www.linkedin.com/in/aaronhancock',
         role: 'Director, Software Engineering - Partner Programs at Dealer.com, A Cox Automotive Company',
         words: "Spencer has been a fantastic team member! His professionalism, work ethic, and reliability have been a key contributor to the success we've experienced as an organization. He's a great teacher and not afraid of any challenge. I highly recommend Spencer!"
     },    
+    {
+        key: 1234,
+        author: 'Jon Lynch',
+        linkedin: 'https://www.linkedin.com/in/jonclynch/',
+        role: 'Senior Software Engineer at Dealer.com and Instructor at SMU',
+        words: 'Spencer is a rare find. In addition to being a solid developer, he excels at fostering community. At DDC, Spencer took the concept of getting people together for a tech roundtable on a regular basis (something I and others tried to do a few times, but did not succeed long-term), and made it into a reality. Spencer is a Joy to work with. His calm and content nature even while under pressure sets the tone of his team to a calm and assertive confidence. Any organization would do well to hire Spencer.'
+    },
     {
         key: 9,
         author: 'Garrett Martin',
@@ -71,6 +78,20 @@ const recommendationsArr = [
         linkedin: 'linkedin.com/in/yourguardian',
         role: 'UI Engineer II at Cox Automotive Inc.',
         words: 'Spencer is an attentive, mindful, knowledgeable, hungry developer. Any time I had a question, Spencer could always answer it or would find the answer super fast. He knows how to analyze and approach problems quite well. I would jump at any chance to work with him now and in the future.'
+    },
+    {
+        key: 239402,
+        author: 'Jonatan Escobar',
+        linkedin: 'https://www.linkedin.com/in/jonatan-escobar-2b1366124/',
+        role: 'UI Engineer at Cox Automotive',
+        words: 'Spencer is extremely intelligent and a well versed engineer. His passion for new technology is evident in his everyday conversations. His humility and willingness to help others has made him one of the most desirable team members to work with.'
+    },
+    {
+        key: 2930,
+        author: 'Lacy Harris',
+        linkedin: 'https://www.linkedin.com/in/lacy-harris/',
+        role: 'UI Engineer at Cox Automotive',
+        words: 'Spencer is an amazing engineer! I have learned so much from him not only during the trainings he’s led but also the several times I would go to him with questions. He always greeted me with a smile and could explain even the most complex concepts in ways I immediately understood and could go implement. He has become one of our Subject Matter Experts on anything React and I know he is constantly keeping up with the latest updates, sharing new ways we can use React in our projects. I also worked with Spencer on organizing a team member-led presentation series where he was an asset to the committee. Not only did he present multiple times, he also used what he learned about presentation skills to help others better prepare for their talks. He is a strong leader, an advocate for helping developers improve their skills, and I can’t wait to see what he does next!'
     },
     {
         key: 2,

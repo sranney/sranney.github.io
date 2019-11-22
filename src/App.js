@@ -1,5 +1,5 @@
 //node modules
-import React, {useState} from 'react';
+import React from 'react';
 
 //styled components
 import GlobalStyles from './helpers/styled-components/global';

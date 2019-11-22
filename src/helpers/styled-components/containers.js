@@ -167,6 +167,10 @@ export const StyledSwipeableViews = styled(SwipeableViews)`
     width: 100%;
     border-top: 3px solid ${borderColor};
     border-bottom: 3px solid ${borderColor};
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤚</text></svg>") 16 0,auto;
+    &:active {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👊</text></svg>") 16 0,auto;
+    }
     div {
         height: 40px;
         background-color: ${componentBackgroundColor};
@@ -206,6 +210,7 @@ export const AboutContainer = styled.div`
 
 const Expandable = styled.div`
     color: ${fontColor};
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👆</text></svg>") 16 0,auto;
 `;
 
 export const ExpandableHeader = styled(Expandable)`
@@ -223,7 +228,8 @@ export const ExpandableProjectHeader = styled(ExpandableHeader)`
 
 export const ExpandableBody = animated(styled(Expandable)`
     overflow-y: hidden;
-    background-color: ${overlayBackgroundColor};    
+    background-color: ${overlayBackgroundColor};   
+    cursor: auto; 
 `);
 
 export const ExpandableParentBody = animated(styled(ExpandableBody)`
