@@ -29,8 +29,7 @@ export const BackgroundImg1 = styled(BackgroundImg)`
     z-index: -1;
     animation-name: ${({fade}) => fade && fadeOut};
     animation-fill-mode: forwards;
-    animation-duration: 5s;
-    animation-delay: 2s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
 `;
 
