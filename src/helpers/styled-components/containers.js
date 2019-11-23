@@ -235,3 +235,12 @@ export const ExpandableBody = animated(styled(Expandable)`
 export const ExpandableParentBody = animated(styled(ExpandableBody)`
     background-color: transparent;
 `);
+
+export const AnimatedBackgroundImageContainer = animated(styled.div`
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+`);

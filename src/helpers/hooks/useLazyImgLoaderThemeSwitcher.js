@@ -31,10 +31,10 @@ export default function useLazyImgLoaderThemeSwitcher() {
         }
     );
 
-    const src = useLazyImgLoader(imgSrc, fallbackImgSrc);
+    const loaded = useLazyImgLoader(imgSrc,theme);
     useEffect(() => {
         dispatch({type: theme});
     }, [theme]);
 
-    return [src,fallbackImgSrc];
+    return [imgSrc,fallbackImgSrc,loaded];
 };

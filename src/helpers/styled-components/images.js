@@ -19,20 +19,22 @@ export const BackgroundImg = styled.div`
     height: 100vh;
     position: fixed;
     object-fit: cover;
-    background-image: url('${({src})=>src}');
+    background-image: url('${({ src }) => src}');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-`;
-
-export const BackgroundImg1 = styled(BackgroundImg)`
     z-index: -1;
-    animation-name: ${({fade}) => fade && fadeOut};
-    animation-fill-mode: forwards;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
 `;
 
-export const BackgroundImg2 = styled(BackgroundImg)`
-    z-index: -2;
-`;
+// export const BackgroundImg1 = styled(BackgroundImg)`
+//     z-index: -1;
+//     animation-name: ${({fade}) => fade && fadeOut};
+//     animation-fill-mode: forwards;
+//     animation-duration: 5s;
+//     animation-delay: 2s;
+//     animation-iteration-count: 1;
+// `;
+
+// export const BackgroundFallback = styled(BackgroundImg)`
+    
+// `;

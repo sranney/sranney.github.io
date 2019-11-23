@@ -28,7 +28,7 @@ export default function AboutBody({position=0, direction='left'}) {
 
     useEffect(() => setComponent(determineComponent(position)),[position]);
 
-    const transition = useTransition(component,comp=>comp.key, {
+    const transition = useTransition(component,comp => comp.key, {
         from: { opacity: 0, left: `${direction === 'right' ? '-' : ''}150%`, transform: 'translateX(-50%)', position: 'absolute', width: '100%'},
         enter: { opacity: 1, left: '50%', transform: 'translateX(-50%)'},
         leave: { opacity: 0, left: `${direction === 'right' ? '' : '-'}150%`, transform: 'translateX(-50%)'}
