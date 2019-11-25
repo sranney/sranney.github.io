@@ -47,10 +47,11 @@ export default function ExpandableProject ({
                 onClick={() => setOpen(o => !o)}
                 size={noGreaterThan450 ? 'xlarge' : 'xxlarge'}
             >
+                {projectTitle}
                 {
-                    projectTitle === 'spencerranney.com'
-                    ? <><StyledLink to={contenthref} size='xlarge'>{projectTitle}</StyledLink><br /></>
-                    : <><StyledAnchor href={contenthref} size='xlarge'>{projectTitle}</StyledAnchor> <br /></>
+                    contenthref === '/'
+                    ? <><StyledLink to={contenthref} size='xlarge'>&#9;link</StyledLink><br /></>
+                    : <><StyledAnchor href={contenthref} size='xlarge'>&#9;link</StyledAnchor> <br /></>
                 }
                 <AnimatedExpandIcon open={open} />
             </ExpandableProjectHeader>

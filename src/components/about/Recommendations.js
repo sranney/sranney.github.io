@@ -148,7 +148,7 @@ const recommendationsArr = [
 export default function Recommendations() {
     return (
         <PostBody>
-            <PostTitle>📢 Recommendations 📢</PostTitle>
+            <PostTitle>📢 References 📢</PostTitle>
             <PostPar>I have had the good fortune of forming some really great work relationships in my career
                 . I feel blessed to have these people in my life. Here&apos;s what some of them have to say about me. </PostPar>
             <StyledAbsoluteAnchor right='35px' top='25px' size="xlarge" href="https://www.linkedin.com/in/spencer-ranney/" target="_blank"><FaLinkedinIn /></StyledAbsoluteAnchor>

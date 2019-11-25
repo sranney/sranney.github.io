@@ -129,16 +129,14 @@ export const SwipeableViewHOC = styled.div`
     margin: 40px auto;
 `;
 export const StyledSwipeableViews = styled(SwipeableViews)`
-    height: 40px;
-    width: auto;
-    border-top: 3px solid ${borderColor};
-    border-bottom: 3px solid ${borderColor};
+    border: 3px solid ${borderColor};
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='60' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>🤚</text></svg>") 16 0,auto;
     &:active {
         cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='60' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👊</text></svg>") 16 0,auto;
     }
     div {
-        height: 40px;
+        height: 100%;
+        line-height: 1.5;
         background-color: ${componentBackgroundColor};
         color: ${fontColor};
         text-align: center;

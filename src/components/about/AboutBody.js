@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default function AboutBody({position=0, direction='left'}: Props) {
-    const determineComponent = (position) => {
+    const determineComponent = (position: number) => {
         if (position === 0) {
             return [{
                 component: <Biography />,
@@ -27,6 +27,11 @@ export default function AboutBody({position=0, direction='left'}: Props) {
                 component: <Recommendations />,
                 key: 'recs'
             }];
+        } else {
+            return [{
+                component: <></>,
+                key: ''
+            }]
         }
     }
 

@@ -12,7 +12,6 @@ const dangerBackgroundColor = ({ theme: { theme } }) => theme === 'light' ? 'var
 export const Button = styled.button`
          padding: 1em;
          border-radius: 0;
-         font-size: ${fontSize};
          width: ${blockWidth};
          box-sizing: border-box;
          border: 2px solid transparent;
@@ -47,6 +46,7 @@ export const PrimaryButton = styled(Button) `
     background-color: ${backgroundColor};
     color: ${fontColor};
     border: 3px solid ${borderColor};
+             font-size: ${fontSize};
     &:hover {
         background-color: ${backgroundColor};
     }
@@ -57,6 +57,7 @@ export const AnimatedPrimaryButton = animated(PrimaryButton);
 export const DangerButton = styled(Button)`
     background-color: ${dangerBackgroundColor};
     color: ${dangerFontColor};
+    font-size: ${fontSize};
     &:hover,
     &:hover:focus {
         background-color: ${dangerBackgroundColor};
@@ -70,7 +71,6 @@ export const DangerButton = styled(Button)`
 
 export const IconButton = styled(PrimaryButton)`
     position: relative;
-
     align-self: stretch;
 
     color: ${fontColor};
