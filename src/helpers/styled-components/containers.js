@@ -172,11 +172,22 @@ export const AboutContainer = styled.div`
     }
 `;
 
-export const AnimatedBackgroundImageContainer = animated(styled.div`
+const BackgroundImageContainer = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     position: fixed;
+    z-index: -2;
+`;
+
+export const FallbackBackgroundImageContainer = styled(BackgroundImageContainer)`
+    background-image: url('${({ src }) => src}');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+`;
+
+export const AnimatedBackgroundImageContainer = animated(styled(BackgroundImageContainer)`
     z-index: -1;
 `);
