@@ -37,4 +37,4 @@ export default function useLazyImgLoaderThemeSwitcher() {
     }, [theme]);
 
     return [imgSrc,fallbackImgSrc,loaded];
-};
+}

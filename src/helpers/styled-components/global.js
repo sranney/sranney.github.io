@@ -1,8 +1,4 @@
-import {createGlobalStyle, keyframes} from 'styled-components';
-
-const backgroundUrl = 'https://mylearningposts-api.herokuapp.com/images/';
-const lightBackground = 'eberhard-grossgasteiger-5P91SF0zNsI-unsplash_edited_edited';
-const darkBackground = 'casey-horner-XE2RmuV6ed0-unsplash';
+import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
     body {

@@ -1,9 +1,16 @@
-import React, {Fragment} from 'react';
+//@flow
+import React from 'react';
 
-import {PostBody} from '../../helpers/styled-components/containers';
+import {PostBody} from '../../helpers/styled-components/postContainers';
 import { PostPar, PostTitle } from '../../helpers/styled-components/typography';
 
-export default function NoMatch ({msgType="", resType="", id="", linkDisplay=true}) {
+type Props = {
+    msgType: string,
+    resType: string,
+    id: string
+}
+
+export default function NoMatch ({msgType="", resType="", id=""}: Props) {
     return (
         <PostBody>
             <PostTitle>🙈🙉🙊</PostTitle>

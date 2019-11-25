@@ -1,3 +1,4 @@
+//@flow
 import React, {Fragment, useContext} from 'react';
 import { ThemeContext } from 'styled-components';
 import Loader from './Loader';
@@ -5,7 +6,13 @@ import {StyledImage} from '../../helpers/styled-components/images';
 import {PostCaption} from '../../helpers/styled-components/typography';
 import useImageIntersectionObserver from '../../helpers/hooks/useImageIntersectionObserver';
 
-export default function InViewImage ({imgSrc="",loader=false,caption=""}) {
+type Props = {
+    imgSrc: string,
+    loader: boolean,
+    caption?: string
+}
+
+export default function InViewImage ({imgSrc="",loader=false,caption=""}: Props) {
     const [ref, src, isLoading] = useImageIntersectionObserver(imgSrc);
     const {theme} = useContext(ThemeContext);
 
@@ -19,4 +26,4 @@ export default function InViewImage ({imgSrc="",loader=false,caption=""}) {
             {caption && <PostCaption>{caption}</PostCaption>}
         </Fragment>
     );
-};
+}

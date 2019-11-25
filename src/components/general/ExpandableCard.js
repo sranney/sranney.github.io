@@ -1,12 +1,15 @@
+//@flow
 import React, {useState, useContext} from 'react';
 import { useSpring } from 'react-spring';
 
 import AnimatedExpandIcon from './AnimatedExpandIcon';
 
-import { ExpandableHeader, ExpandableBody} from '../../helpers/styled-components/containers';
+import { ExpandableHeader, ExpandableBody} from '../../helpers/styled-components/expandableContainers';
 import {DataContext} from '../../helpers/context/contexts';
 
-export default function ExpandableCard({content="", subcontent=""}) {
+export type CardContentTypes = {|cardContent: string,cardSubContent: string|};
+
+export default function ExpandableCard({cardContent="", cardSubContent=""}: CardContentTypes) {
     const { noGreaterThan450: mediaQ } = useContext(DataContext);
     const [open, setOpen] = useState(false);
     const expandableAnimation = useSpring({ 
@@ -22,12 +25,12 @@ export default function ExpandableCard({content="", subcontent=""}) {
                 size={mediaQ ? 'small' : 'base'}
                 onClick={()=>setOpen(o=>!o)}
             >
-                {content}
+                {cardContent}
                 <AnimatedExpandIcon open={open} />
             </ExpandableHeader>
             <ExpandableBody style={expandableAnimation}>
-                {subcontent}
+                {cardSubContent}
             </ExpandableBody>
         </div>
     );
-};
+}

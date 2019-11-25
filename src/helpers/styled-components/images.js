@@ -1,9 +1,4 @@
-import styled, {keyframes} from 'styled-components';
-
-const fadeOut = keyframes`
-    from {opacity: 1;}
-    to {opacity: 0;}
-`;
+import styled from 'styled-components';
 
 export const StyledImage = styled.img`
     max-width: 100%;
@@ -25,16 +20,3 @@ export const BackgroundImg = styled.div`
     background-repeat: no-repeat;
     z-index: -1;
 `;
-
-// export const BackgroundImg1 = styled(BackgroundImg)`
-//     z-index: -1;
-//     animation-name: ${({fade}) => fade && fadeOut};
-//     animation-fill-mode: forwards;
-//     animation-duration: 5s;
-//     animation-delay: 2s;
-//     animation-iteration-count: 1;
-// `;
-
-// export const BackgroundFallback = styled(BackgroundImg)`
-    
-// `;

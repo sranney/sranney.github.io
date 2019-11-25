@@ -1,16 +1,40 @@
+//@flow
 import React, {useState, useContext} from 'react';
+import type {Element} from 'react';
 import { useSpring } from 'react-spring';
 import ExpandableSection from './ExpandableSection';
+import type {SectionContentTypes} from './ExpandableSection';
 import AnimatedExpandIcon from './AnimatedExpandIcon';
 
-import {ExpandableParentBody, ExpandableProjectHeader} from '../../helpers/styled-components/containers';
+import {ExpandableParentBody, ExpandableProjectHeader} from '../../helpers/styled-components/expandableContainers';
 import {StyledAnchor, StyledLink} from '../../helpers/styled-components/links';
 import { PostPar } from '../../helpers/styled-components/typography';
 
 import {DataContext} from '../../helpers/context/contexts';
 
-export default function ExpandableProject ({content,subcontent}) {
-    const {noGreaterThan450:mediaQ} = useContext(DataContext);
+type ProjectContentTypes = {|key: string, type: string, ...SectionContentTypes|};
+
+export type ProjectType = {|
+    projectTitle: string,
+    projectContent: Array<ProjectContentTypes>,
+    contenthref: string
+|};
+
+export default function ExpandableProject ({
+    projectTitle='',
+    projectContent=[{
+        type: '',
+        sectionContent:'',
+        sectionSubContent:[{
+            cardContent:'',
+            cardSubContent: '',
+            key: ''
+        }],
+        key:''
+    }],
+    contenthref=''
+}: ProjectType) {
+    const {noGreaterThan450} = useContext(DataContext);
     const [open, setOpen] = useState(false);
     const expandableAnimation = useSpring({
         opacity: open ? 1 : 0,
@@ -21,25 +45,37 @@ export default function ExpandableProject ({content,subcontent}) {
         <div>
             <ExpandableProjectHeader
                 onClick={() => setOpen(o => !o)}
-                size={mediaQ ? 'xlarge' : 'xxlarge'}
+                size={noGreaterThan450 ? 'xlarge' : 'xxlarge'}
             >
                 {
-                    content === 'spencerranney.com'
-                    ? <><StyledLink to='/' size='xlarge'>{content}</StyledLink><br /></>
-                    : <><StyledAnchor href={contenthref} size='xlarge'>{content}</StyledAnchor> <br /></>
+                    projectTitle === 'spencerranney.com'
+                    ? <><StyledLink to={contenthref} size='xlarge'>{projectTitle}</StyledLink><br /></>
+                    : <><StyledAnchor href={contenthref} size='xlarge'>{projectTitle}</StyledAnchor> <br /></>
                 }
                 <AnimatedExpandIcon open={open} />
             </ExpandableProjectHeader>
             <ExpandableParentBody style={expandableAnimation}>
                 {
-                    subcontent.map(({type,content,subcontent,key})=>{
+                    projectContent.map<Element<typeof ExpandableSection | StyledAnchor | PostPar>>(({
+                        type,
+                        sectionContent,
+                        sectionSubContent,
+                        key
+                    }: ProjectContentTypes)=>{
                         if (type === 'category') {
-                            return <ExpandableSection key={key} content={content} subcontent={subcontent}>{content}</ExpandableSection>;
+                            return (
+                                <ExpandableSection 
+                                    key={key} 
+                                    sectionContent={sectionContent}
+                                    sectionSubContent={sectionSubContent}
+                                />
+                            );
                         } else if (type === 'source-code') {
-                            return <StyledAnchor key={key} size='xlarge' style={{ paddingRight: '8px' }} href={content}>github</StyledAnchor>;
+                            return <StyledAnchor key={key} size='xlarge' style={{ paddingRight: '8px' }} href={sectionContent}>github</StyledAnchor>;
                         } else if (type === 'description') {
-                            return <PostPar key={key}>{content}</PostPar>;
+                            return <PostPar key={key}>{sectionContent}</PostPar>;
                         }
+                        return <></>
                     })
                 }
             </ExpandableParentBody>

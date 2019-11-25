@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {useTransition, animated} from 'react-spring';
+import React from 'react';
+import {useTransition} from 'react-spring';
 
 import {BackgroundImg as BackgroundImgContainer} from './helpers/styled-components/images'
 import {AnimatedBackgroundImageContainer as ImgContainer} from './helpers/styled-components/containers';
@@ -23,10 +23,11 @@ export default function BackgroundImg () {
           }
         ];
     const transition = useTransition(renderedImg,img => img.key,{
+        initial: {opacity: 1},
         from: {opacity: 0},
         enter: {opacity: 1},
         leave: {opacity: 0}
     });
 
     return transition.map(({item,key,props: style})=><ImgContainer style={style} key={key}>{item.component}</ImgContainer>);
-};
+}

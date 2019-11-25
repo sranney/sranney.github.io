@@ -26,4 +26,4 @@ export default function useSearchFilter(blogs=[], searchValue='') {
     },[searchValue, blogs]);
 
     return [filteredBlogs];
-};
+}

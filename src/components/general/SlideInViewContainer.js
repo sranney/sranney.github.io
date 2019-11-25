@@ -6,4 +6,4 @@ import { SlideInViewContainer as Container } from '../../helpers/styled-componen
 export default function SlideInViewContainer ({children,...restProps}) {
     const [ref, inview] = useInView();
     return <Container ref={ref} inview={inview} {...restProps}>{children}</Container>;
-};
+}

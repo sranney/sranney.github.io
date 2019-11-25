@@ -1,3 +1,4 @@
+//@flow
 import React, {useState, useContext} from 'react';
 
 import NoMatchOrError from './general/NoMatchOrError';
@@ -9,14 +10,22 @@ import {DataContext} from '../helpers/context/contexts';
 import {ThemeContext} from 'styled-components';
 import useSearchFilter from '../helpers/hooks/useSearchFilter';
 
-export default function Search ({match: {params: {searchterm=""}}}) {
+type Props = {
+    match: {
+        params: {
+            searchterm: string
+        }
+    }
+};
+
+export default function Search ({match: {params: {searchterm=""}}}: Props) {
     const [blogs, isLoaded, error] = useContext(DataContext);
     const {theme} = useContext(ThemeContext);
     const [searchValue, setSearchValue] = useState('');
     const [filteredBlogs] = useSearchFilter(blogs,searchValue||searchterm);
 
-    const onSearchChange = ({target: {value}}) => setSearchValue(value);
-    const resetSearch = () => setSearchValue('');
+    const onSearchChange = ({target: {value}}): void => setSearchValue(value);
+    const resetSearch = (): void => setSearchValue('');
 
     if (blogs && blogs.length === 0 && isLoaded) {
         return <NoMatchOrError msgType='no match' resType='search' id={searchterm ? searchterm : ''}/>;
@@ -38,4 +47,4 @@ export default function Search ({match: {params: {searchterm=""}}}) {
             />
         </div>
     );
-};
+}

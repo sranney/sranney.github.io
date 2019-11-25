@@ -1,10 +1,16 @@
+//@flow
 import React, {useEffect, useState} from 'react';
-import { useSpring, useTransition, animated } from 'react-spring';
+import { useTransition, animated } from 'react-spring';
 import Biography from './Biography';
 import Recommendations from './Recommendations';
 import Portfolio from './Portfolio';
 
-export default function AboutBody({position=0, direction='left'}) {
+type Props = {
+    position: number,
+    direction: string
+}
+
+export default function AboutBody({position=0, direction='left'}: Props) {
     const determineComponent = (position) => {
         if (position === 0) {
             return [{
@@ -39,4 +45,4 @@ export default function AboutBody({position=0, direction='left'}) {
             {transition.map(({item, key, props}) => <animated.div key={key} style={props}>{item.component}</animated.div>)}
         </div>
     );
-};
+}

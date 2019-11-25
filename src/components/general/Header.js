@@ -1,4 +1,4 @@
-import React, {Fragment,useContext, useState} from 'react';
+import React from 'react';
 
 //styled components!!!
 import { HeaderContainer} from '../../helpers/styled-components/containers';
@@ -12,4 +12,4 @@ export default function Header() {
             <Navigation/>
         </HeaderContainer>
     )
-};
+}

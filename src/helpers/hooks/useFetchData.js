@@ -25,7 +25,7 @@ export default function useFetchData () {
             isLoaded: false,
             error: null
         }
-    )
+    );
 
     useEffect(() => {
         dispatch({type: IS_LOADING});
@@ -37,4 +37,4 @@ export default function useFetchData () {
     },[]);
 
     return [goodResponse, isLoaded, error];
-};
+}

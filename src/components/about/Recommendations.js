@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { FaLinkedinIn } from 'react-icons/fa';
 
-import { PostBody } from "../../helpers/styled-components/containers";
+import { PostBody } from "../../helpers/styled-components/postContainers";
 import { PostTitle, PostPar } from "../../helpers/styled-components/typography";
 import { StyledAnchor, StyledAbsoluteAnchor } from "../../helpers/styled-components/links";
 
@@ -150,8 +150,8 @@ export default function Recommendations() {
         <PostBody>
             <PostTitle>📢 Recommendations 📢</PostTitle>
             <PostPar>I have had the good fortune of forming some really great work relationships in my career
-                . I feel blessed to have these people in my life. Here's what some of them have to say about me. </PostPar>
-            <StyledAbsoluteAnchor right='5%' top='1%' size="xlarge" href="https://www.linkedin.com/in/spencer-ranney/" target="_blank"><FaLinkedinIn /></StyledAbsoluteAnchor>
+                . I feel blessed to have these people in my life. Here&apos;s what some of them have to say about me. </PostPar>
+            <StyledAbsoluteAnchor right='35px' top='25px' size="xlarge" href="https://www.linkedin.com/in/spencer-ranney/" target="_blank"><FaLinkedinIn /></StyledAbsoluteAnchor>
             {
                 recommendationsArr.map(({key, author, role, words, linkedin}) => {
                     return (

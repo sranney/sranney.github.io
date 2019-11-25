@@ -1,7 +1,8 @@
+//@flow
 import React, {useContext, useEffect, useState} from 'react';
 
 import NoMatchOrError from './general/NoMatchOrError';
-import { PostBody, CenteredContentWrapper} from '../helpers/styled-components/containers';
+import { PostBody } from '../helpers/styled-components/postContainers';
 import BlogBody from './blog/BlogBody';
 import References from './blog/References';
 import Loader from './general/Loader';
@@ -10,10 +11,19 @@ import {ThemeContext} from 'styled-components';
 
 import {DataContext} from '../helpers/context/contexts';
 
-export default function Blog({id=""}) {
+type Props = {
+    id: string
+};
+
+export default function Blog({id=""}: Props) {
     const [blogs, isLoaded, error] = useContext(DataContext);
     const {theme} = useContext(ThemeContext);
-    const [{body,references}, setBlog] = useState({body: [],references: []});
+    const [{ body, references }, setBlog] = useState(
+        (blogs && blogs.find(({ key }) => key === id)) || {
+            body: [],
+            references: []
+        }
+    );
 
     useEffect(() => setBlog((blogs && blogs.find(({ key }) => key === id)) || {body: [],references:[]}), [blogs, id]);
 
@@ -38,4 +48,4 @@ export default function Blog({id=""}) {
             }
         </PostBody>
     );
-};
+}

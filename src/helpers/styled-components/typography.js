@@ -1,21 +1,19 @@
 import styled, {keyframes} from 'styled-components';
-import {Link} from 'react-router-dom';
-import {animated} from 'react-spring';
 
 //mixins used in typography - sets the color of font and background colors depending on the theme
-import { fontColor, backgroundColor, overlayBackgroundColor} from './mixins/themeColor';
-
-import {fontSize} from './mixins/typography';
+import { fontColor } from './mixins/themeColor';
 
 //typography animations
 const typingEffect = keyframes`
     from {width: 0;}
     to {width: 100%;}
 `;
+
 const blinkCaretLight = keyframes`
     from,to {border-color: transparent;}
     50% {border-color: var(--color-neutral-800);}
 `;
+
 const blinkCaretDark = keyframes`
     from,to {border-color: transparent;}
     50% {border-color: var(--color-neutral-0);}

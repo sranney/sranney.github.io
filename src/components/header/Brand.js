@@ -10,4 +10,4 @@ export default function Brand() {
             <HeaderPar>For the Love of Engineering</HeaderPar>
         </HeaderLink>
     );
-};
+}

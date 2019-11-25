@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import Tree from 'react-animated-tree';
 
 import { backgroundColor, borderColor, fontColor, componentBackgroundColor, overlayBackgroundColor} from './mixins/themeColor';
-import {fontSize} from './mixins/typography';
-import {boxShadow} from './mixins/content';
+
 import { TwitterTweetEmbed } from 'react-twitter-embed'; 
 import SwipeableViews from 'react-swipeable-views';
+
 
 export const FlexContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
+
+export const FlexContainerStretch = styled(FlexContainer)`
+    align-items: stretch;
 `;
 
 export const FlexWrapper = styled(FlexContainer)`
@@ -56,45 +59,6 @@ export const BtnNav = styled(FlexContainer)`
 
 export const SectionBtnNav = styled(BtnNav)`
     margin: 32px auto;
-`;
-
-const PostGeneral = styled.div`
-    max-width: 800px;
-    margin: 32px auto;
-    padding: 16px 32px;
-    background-color: ${backgroundColor};
-    box-shadow: ${boxShadow};
-`;
-
-export const PostBody = styled(PostGeneral)`
-    position: relative;
-    @media(max-width: 800px) {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 0;
-    }
-    @media(max-width: 480px) {
-        margin-top: 0;
-    }
-`;
-
-export const PostCard = styled(PostGeneral)`
-    width: 30%;
-    padding: 50px 25px 75px;
-    text-align: center;
-    transition: transform 0.3s;
-    &:hover {
-        transform: scale(1.1);
-    }
-    @media(max-width: 800px) {
-        min-height: 0;
-        width: 100%;
-        margin: 12px 0 0 0;
-    }
-`;
-
-export const PostSearch = styled(PostBody)`
-    padding: 32px;
 `;
 
 export const TwitterQuote = styled(TwitterTweetEmbed)`
@@ -161,15 +125,17 @@ export const SlideInViewContainer = styled(CenteredContentWrapper)`
     }
 `;
 
-export const StyledSwipeableViews = styled(SwipeableViews)`
+export const SwipeableViewHOC = styled.div`
     margin: 40px auto;
+`;
+export const StyledSwipeableViews = styled(SwipeableViews)`
     height: 40px;
-    width: 100%;
+    width: auto;
     border-top: 3px solid ${borderColor};
     border-bottom: 3px solid ${borderColor};
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤚</text></svg>") 16 0,auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='60' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>🤚</text></svg>") 16 0,auto;
     &:active {
-        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👊</text></svg>") 16 0,auto;
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='60' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👊</text></svg>") 16 0,auto;
     }
     div {
         height: 40px;
@@ -207,34 +173,6 @@ export const AboutContainer = styled.div`
         box-sizing: border-box;
     }
 `;
-
-const Expandable = styled.div`
-    color: ${fontColor};
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👆</text></svg>") 16 0,auto;
-`;
-
-export const ExpandableHeader = styled(Expandable)`
-    font-size: ${fontSize};
-    position: relative;
-`;
-
-export const ExpandableSectionHeader = styled(ExpandableHeader)`
-    border-top: 2px solid ${fontColor};
-`;
-
-export const ExpandableProjectHeader = styled(ExpandableHeader)`
-    font-style: italic;
-`;
-
-export const ExpandableBody = animated(styled(Expandable)`
-    overflow-y: hidden;
-    background-color: ${overlayBackgroundColor};   
-    cursor: auto; 
-`);
-
-export const ExpandableParentBody = animated(styled(ExpandableBody)`
-    background-color: transparent;
-`);
 
 export const AnimatedBackgroundImageContainer = animated(styled.div`
     top: 0;

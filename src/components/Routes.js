@@ -11,10 +11,10 @@ import Favorites from './Favorites';
 export default function Routes() {
     return (
         <Switch >
-            <Route exact path='/' component={Welcome} />
+            <Route exact path='/' component={About} />
             <Route path='/post/:id' render={({ match }) => <Blog id={match.params.id} />} />
             <Route path='/postlist/:searchterm?' component={Search} />
-            <Route path='/favorites' component={Favorites} />
+            <Route path='/favorites' component={Favorites} />{/* to come */}
             <Route exact path='/about' component={About} />
         </Switch>
     );

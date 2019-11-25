@@ -17,11 +17,12 @@ const reducer = ({position, direction}, action) => {
 }
 
 export default function useSlide () {
+    const aboutSlidePosition = window.localStorage.getItem('about-slide-position');
 
     const [{position, direction}, dispatch] = useReducer(
         reducer,
         {
-            position: +window.localStorage.getItem('about-slide-position') || 0,
+            position: aboutSlidePosition || 0,
             direction: null
         }
     );
@@ -32,16 +33,8 @@ export default function useSlide () {
     const showBio = () => dispatch({ type: BIO });
     const showPortf = () => dispatch({ type: PORTF });
     const showRecs = () => dispatch({ type: RECS });
-    //for swipeable
-    const slide = (index) => {
-        if(index === 0) {
-            dispatch({type: BIO});
-        } else if(index === 1) {
-            dispatch({type: PORTF});
-        } else if(index === 2) {
-            dispatch({type: RECS});
-        }
-    }
+    
+    decrementPosition
 
-    return {slide, position, direction, showBio, showPortf, showRecs};
+    return {decrementPosition, incrementPosition, position, direction, showBio, showPortf, showRecs};
 }

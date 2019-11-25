@@ -1,27 +1,52 @@
+//@flow
 import React from 'react';
+import type {Element} from 'react';
 
 import InViewImage from '../general/InViewImage';
 
 import { FlexContainer, TwitterQuote } from '../../helpers/styled-components/containers';
 import { PostPar, PostTitle, PostSectionHeader } from '../../helpers/styled-components/typography';
 
-export default function BlogBody({body=[]}) {
-    return body.map(({ type, content, underline, fallbackContent, key }) => {
-        switch (type) {
-            case 'par':
-                return <PostPar underline={underline} key={key}>{content}</PostPar>;
-            case 'title':
-                return <PostTitle key={key}>{content}</PostTitle>;
-            case 'sectionheader':
-                return <PostSectionHeader key={key}>{content}</PostSectionHeader>;
-            case 'github':
-                return <GitCodeBlock key={key} src={content} />;
-            case 'twitter':
-                return <TwitterQuote key={key} tweetId={content} />;
-            case 'image':
-                return <FlexContainer key={key}><InViewImage loader imgSrc={content} fallbackImgSrc={`./${fallbackContent}`} /></FlexContainer>;
-            default:
-                return <></>;
-        }
-    });
+type ParsingTypes = {
+  type: string,
+  content: string,
+  underline: boolean,
+  key: number
 };
+
+type ComponentProps = {
+    body: Array<ParsingTypes>
+};
+
+
+export default function BlogBody({ body = [] }: ComponentProps) {
+    return body.map<Element<PostPar | PostTitle | PostSectionHeader | FlexContainer>>(({ type, content, underline, key }: ParsingTypes) => {
+        switch (type) {
+        case "par":
+            return (
+            <PostPar underline={underline} key={key}>
+                {content}
+            </PostPar>
+            );
+        case "title":
+            return <PostTitle key={key}>{content}</PostTitle>;
+        case "sectionheader":
+            return (
+            <PostSectionHeader key={key}>
+                {content}
+            </PostSectionHeader>
+            );
+        case "twitter":
+            return <TwitterQuote key={key} tweetId={content} />;
+        case "image":
+            return (
+            <FlexContainer key={key}>
+                <InViewImage loader imgSrc={content} />
+            </FlexContainer>
+            );
+        default:
+            return <></>;
+        }
+    }
+    );
+}

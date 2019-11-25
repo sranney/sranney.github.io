@@ -13,4 +13,4 @@ export default function useLazyImgLoader (imgSrc,theme) {
     }, [imgSrc,theme]);
 
     return loaded;
-};
+}

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {animated} from 'react-spring';
 
 export const ToggleIcon = styled.span`
     position: absolute;

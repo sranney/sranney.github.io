@@ -1,9 +1,26 @@
+//@flow
 import React from 'react';
 import {useMediaPredicate} from 'react-media-hook';
-import { SectionBtnNav, StyledSwipeableViews } from '../../helpers/styled-components/containers';
+import { SectionBtnNav, StyledSwipeableViews, FlexContainer } from '../../helpers/styled-components/containers';
 import { PrimaryButton } from '../../helpers/styled-components/buttons';
 
-export default function AboutNav({ slide = () => { }, position = 0, showBio = () => { }, showPortf = () => { }, showRecs = () => { } }) {
+type Props = {
+    decrementPosition: void,
+    incrementPosition: void,
+    position: number,
+    showBio: void,
+    showPortf: void,
+    showRecs: void
+};
+
+export default function AboutNav({ 
+    decrementPosition = () => { },
+    incrementPosition = () => { },
+    position = 0, 
+    showBio = () => { }, 
+    showPortf = () => { }, 
+    showRecs = () => { } 
+}: Props) {
     const noGreaterThan600 = useMediaPredicate('(max-width: 600px)');
     return (
         !noGreaterThan600 //want to change view based on what the 
@@ -15,11 +32,15 @@ export default function AboutNav({ slide = () => { }, position = 0, showBio = ()
             </SectionBtnNav>
         )
         : (
-            <StyledSwipeableViews enableMouseEvents index={position} onChangeIndex={slide}>
-                <div>Biography</div>
-                <div>Portfolio</div>
-                <div>Recommendations</div>
-            </StyledSwipeableViews>
+            <FlexContainer>
+                <PrimaryButton onClick={decrementPosition}>{'<<<'}</PrimaryButton>
+                <StyledSwipeableViews enableMouseEvents index={position}>
+                    <div>Biography</div>
+                    <div>Portfolio</div>
+                    <div>Recommendations</div>
+                </StyledSwipeableViews>
+                <PrimaryButton onClick={incrementPosition}>{'>>>'}</PrimaryButton>
+            </FlexContainer>
         )
     )
 }

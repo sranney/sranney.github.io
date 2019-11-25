@@ -21,4 +21,4 @@ export default function RouterApp () {
             </DataContext.Provider>
         </Router>
     );
-};
+}

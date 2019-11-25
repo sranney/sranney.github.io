@@ -3,24 +3,27 @@ import {Link} from 'react-router-dom';
 
 import {fontColor, backgroundColor} from './mixins/themeColor';
 import {fontSize} from './mixins/typography';
+import {PointerCursor} from './mixins/cursors';
 
 //adding some styling to the react router Link component
 export const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${fontColor};
     font-size: ${fontSize};
-    text-decoration: none;   
+    text-decoration: none;
+    cursor: ${PointerCursor};
 `;
 
 //styling for external links
 export const StyledAnchor = styled.a`
     color: ${fontColor};
     font-size: ${fontSize};
+    cursor: ${PointerCursor};
 `;
 
 export const HeaderLink = styled(StyledLink)`
     padding: .75em;        
-    margin-top: 16px;    
+    margin-top: 16px;
     background-color: ${backgroundColor};
     font-size: 2rem;
     @media (max-width: 800px) {
@@ -41,6 +44,6 @@ export const StyledAnchorBlock = styled(StyledAnchor)`
 
 export const StyledAbsoluteAnchor = styled(StyledAnchor)`
     position: absolute;
-    top: ${({top})=>top};
-    right: ${({right})=>right};
+    top: ${({ top }) => top};
+    right: ${({ right }) => right};
 `;

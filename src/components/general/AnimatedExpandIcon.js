@@ -1,9 +1,14 @@
+//@flow
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import { FaTimes, FaPlus } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 
-export default function AnimatedExpandIcon({ open }) {
+type openStatusType = {
+    open: boolean
+};
+
+export default function AnimatedExpandIcon({ open }: openStatusType) {
     const transition = useTransition(open, null, {
         from: { position: 'absolute', opacity: 0, top: 0, right: 0 },
         enter: { opacity: 1 },
