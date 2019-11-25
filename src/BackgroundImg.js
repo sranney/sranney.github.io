@@ -16,7 +16,7 @@ export default function BackgroundImg () {
 
     return (
       <>
-        <AnimImgContainer style={style}><BackgroundImgContainer src={src} /></AnimImgContainer>
+        {loaded && <AnimImgContainer style={style}><BackgroundImgContainer src={src} /></AnimImgContainer>}
         <FallbackImgContainer src={fallbackImgSrc}/>
       </>
     );

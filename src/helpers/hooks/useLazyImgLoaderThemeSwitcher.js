@@ -32,6 +32,7 @@ export default function useLazyImgLoaderThemeSwitcher() {
     );
 
     const loaded = useLazyImgLoader(imgSrc,theme);
+    
     useEffect(() => {
         dispatch({type: theme});
     }, [theme]);
