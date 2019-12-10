@@ -21,6 +21,7 @@ export default function ExpandableSection({
     const { noGreaterThan450: mediaQ } = useContext(DataContext);
     const [open, setOpen] = useState(false);
     const expandableAnimation = useSpring({
+        overflow: 'hidden',
         opacity: open ? 1 : 0,
         maxHeight: open ? '8000px' : '0px',
     });

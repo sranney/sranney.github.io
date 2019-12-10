@@ -1,47 +1,67 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js"
     },
     module: {
         rules: [
             {
                 test: /\.(js)$/,
-                use: ['babel-loader']
+                use: ["babel-loader"]
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader','css-loader','sass-loader']
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                loader: 'file-loader',
+                test: /\.(png|jpg|gif)$/,
+                loader: "file-loader",
                 options: {
-                    outputPath: '/src/images'
+                outputPath: "/src/images"
                 }
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                    },
+                    {
+                        loader: "react-svg-loader",
+                        options: {
+                            jsx: true
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+        template: "src/index.html"
         }),
         new BundleAnalyzerPlugin()
     ],
     devServer: {
         proxy: {
-            '/bloglist': 'https://mylearningposts-api.herokuapp.com'
+        "/bloglist": "https://mylearningposts-api.herokuapp.com"
         }
     },
     resolve: {
         alias: {
-            'react-dom$': 'react-dom/profiling',
-            'scheduler/tracing': 'scheduler/tracing-profiling',
+        "react-dom$": "react-dom/profiling",
+        "scheduler/tracing": "scheduler/tracing-profiling"
         }
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()]
     }
-}
+};

@@ -26,14 +26,14 @@ export default function AboutNav({
     const noGreaterThan600 = useMediaPredicate('(max-width: 600px)');
     return !noGreaterThan600 ? ( //want to change view based on what the
       <SectionBtnNav>
-        <PrimaryButton size={"small"} onClick={showBio}>
+        <PrimaryButton size={'small'} onClick={showBio}>
           Biography
         </PrimaryButton>
-        <PrimaryButton size={"small"} onClick={showPortf}>
+        <PrimaryButton size={'small'} onClick={showPortf}>
           Portfolio
         </PrimaryButton>
-        <PrimaryButton size={"small"} onClick={showRecs}>
-          Recommendations
+        <PrimaryButton size={'small'} onClick={showRecs}>
+          References
         </PrimaryButton>
       </SectionBtnNav>
     ) : (

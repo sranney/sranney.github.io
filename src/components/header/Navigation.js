@@ -1,12 +1,12 @@
 import React, {Fragment, useContext, useState} from 'react';
 import { useMediaPredicate } from 'react-media-hook';
-import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
 
 import Toggle from '../header/Toggle';
 import MenuModal from '../general/MenuModal';
 
+import {StyledMenuIcon} from '../../helpers/styled-components/icons';
 import { BtnNav } from '../../helpers/styled-components/containers';
 import { PrimaryButton, IconButton } from '../../helpers/styled-components/buttons';
 
@@ -18,12 +18,15 @@ export default function Navigation () {
     return(
         <Fragment>
             <BtnNav>
+                <>
                 {
                     !noGreaterThan500 ?
                         <Toggle />
                         :
                         <IconButton icon={theme === 'light' ? '☀️' : '🌙'} onClick={toggleTheme} />
                 }
+                </>
+                <>
                 {
                     noLessThan700 ?
                         <Fragment>
@@ -31,8 +34,9 @@ export default function Navigation () {
                             <Link to='/about'><PrimaryButton size={noGreaterThan500 ? 'small' : undefined}>About</PrimaryButton></Link>
                         </Fragment>
                         :
-                        <IconButton onClick={() => setShowModal(true)}><FaBars /></IconButton>
+                        <IconButton onClick={() => setShowModal(true)}><StyledMenuIcon /></IconButton>
                 }
+                </>
             </BtnNav>
             {!noLessThan700 && <MenuModal showModal={showModal} close={() => setShowModal(false)}/>}
         </Fragment>

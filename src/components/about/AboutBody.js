@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import { useTransition, animated } from 'react-spring';
 import Biography from './Biography';
-import Recommendations from './Recommendations';
+import References from './References';
 import Portfolio from './Portfolio';
 
 type Props = {
@@ -24,7 +24,7 @@ export default function AboutBody({position=0, direction='left'}: Props) {
             }];
         } else if (position === 2) {
             return [{
-                component: <Recommendations />,
+                component: <References />,
                 key: 'recs'
             }];
         } else {

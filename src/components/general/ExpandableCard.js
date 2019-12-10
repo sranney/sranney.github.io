@@ -24,6 +24,7 @@ export default function ExpandableCard({cardContent="", cardSubContent=""}: Card
             <ExpandableHeader 
                 size={mediaQ ? 'small' : 'base'}
                 onClick={()=>setOpen(o=>!o)}
+                style={{margin: open && '8px 0'}}
             >
                 {cardContent}
                 <AnimatedExpandIcon open={open} />

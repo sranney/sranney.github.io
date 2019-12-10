@@ -5,15 +5,11 @@ import type {Element} from 'react';
 import { useSpring } from 'react-spring';
 import { createPortal } from 'react-dom';
 
-import { FaWindowClose } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
-
 import {StyledLink} from '../../helpers/styled-components/links'; 
 
 import {StyledModal} from '../../helpers/styled-components/containers';
 import {PrimaryButton} from '../../helpers/styled-components/buttons';
-import {PointerCursor} from '../../helpers/styled-components/mixins/cursors';
-
+import { StyledModalCloseIcon } from "../../helpers/styled-components/icons";
 
 const navArr = [
     {
@@ -33,15 +29,6 @@ const navArr = [
     }
 ]; 
 
-const iconStyles = {
-  position: "absolute",
-  right: "5%",
-  top: "2%",
-  fontSize: "var(--font-size-xxlarge)",
-  color: "var(--color-danger-800)",
-  fontWeight: "bold",
-  cursor: PointerCursor
-};
 
 type Props = {
     close: ()=>void,
@@ -55,9 +42,7 @@ export default function MenuModal ({close=()=>{}, showModal=false}: Props) {
 
     return createPortal(
         <StyledModal style={modalAnim}>
-            <IconContext.Provider value={{ style: iconStyles}}>
-                <FaWindowClose onClick={() => close()}/>
-            </IconContext.Provider>
+            <StyledModalCloseIcon onClick={() => close()}/>
             {navArr.map<Element<typeof StyledLink>>(({text,key, ...linkprops}) => {
                 return (
                         <StyledLink key={key} {...linkprops}>

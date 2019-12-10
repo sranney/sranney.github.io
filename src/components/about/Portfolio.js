@@ -1,11 +1,10 @@
 //@flow
 import React from 'react';
 import type {Element} from 'react';
-import { FaGithubAlt } from 'react-icons/fa';
 import {useMediaPredicate} from 'react-media-hook';
 import {PostBody} from '../../helpers/styled-components/postContainers';
 import {PostTitle, PostPar} from '../../helpers/styled-components/typography';
-import { StyledAbsoluteAnchor } from '../../helpers/styled-components/links';
+import { StyledAnchor } from '../../helpers/styled-components/links';
 import ExpandableProject from '../general/ExpandableProject';
 import {DataContext} from '../../helpers/context/contexts';
 
@@ -53,7 +52,7 @@ const portfolioData = [
           {
             cardContent: "React Spring",
             cardSubContent:
-              "Wow! Just wow! Started to play around with this, it is in the slide transitions between Recommendations/Portfolio/Biography and the animations of the modal currently. I'm going to move all other animations over to this and add some more, including transitions between routes",
+              "Wow! Just wow! Started to play around with this, it is in the slide transitions between References/Portfolio/Biography and the animations of the modal currently. I'm going to move all other animations over to this and add some more, including transitions between routes",
             key: "spring"
           },
           {
@@ -223,27 +222,26 @@ type PortfolioContent = {|
 export default function Portfolio() {
     const noGreaterThan450 = useMediaPredicate('(max-width: 450px)');
     return (
-        <DataContext.Provider value={noGreaterThan450}>
-            <PostBody>
-            <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
-            <StyledAbsoluteAnchor
-                right="35px"
-                top="25px"
-                size="xxlarge"
-                href="https://github.com/sranney"
-                target="_blank"
-            >
-                <FaGithubAlt />
-            </StyledAbsoluteAnchor>
-            <PostPar>
-                Tap, tap, tap projects, categories and technology names to see a
-                little bit about why I chose to use something, or what I used it in!
-            </PostPar>
-            {portfolioData.map <Element<typeof ExpandableProject>>
-                (({ key, ...projectContent }: PortfolioContent) => (
-                    <ExpandableProject key={key} {...projectContent} />
-                ))}
-            </PostBody>
-        </DataContext.Provider>
+      <DataContext.Provider value={noGreaterThan450}>
+        <PostBody>
+          <PostTitle>🛠️ Portfolio 🛠️</PostTitle>
+          <StyledAnchor
+            size="xxlarge"
+            href="https://github.com/sranney"
+            target="_blank"
+          >
+            See my github profile
+          </StyledAnchor>
+          <PostPar>
+            Tap, tap, tap projects, categories and technology names to see a
+            little bit about why I chose to use something, or what I used it in!
+          </PostPar>
+          {portfolioData.map <
+            Element<typeof ExpandableProject>>
+              (({ key, ...projectContent }: PortfolioContent) => (
+                <ExpandableProject key={key} {...projectContent} />
+              ))}
+        </PostBody>
+      </DataContext.Provider>
     );
 }
